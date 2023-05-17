@@ -5,11 +5,13 @@ import 'package:gym_app/product/enums/gender.dart';
 class genderButtonComponent extends StatelessWidget {
   genderButtonComponent({Key? key, required this.gender}) : super(key: key);
   final Gender gender;
+  bool isSelected = false;
 
   @override
   Widget build(BuildContext context) {
     return Card(
-      color: ColorsConstants.blue_Color,
+      color:
+          isSelected ? ColorsConstants.blue_Color : ColorsConstants.grey_Color,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(80)),
       child: Container(
         height: 140,
@@ -29,7 +31,9 @@ class genderButtonComponent extends StatelessWidget {
             ),
             Text(
               gender.title,
-              style: TextStyle(color: Colors.black, fontSize: 15),
+              style: TextStyle(
+                  color: isSelected ? Colors.black : Colors.white,
+                  fontSize: 15),
             )
           ],
         ),
