@@ -1,8 +1,8 @@
-enum widgetSizes {
-  cardheight(180),
-  cardWidth(330);
+enum WidgetSizes {
+  cardHeight(76),
+  cardWidth(327);
 
   final double value;
 
-  const widgetSizes(this.value);
+  const WidgetSizes(this.value);
 }
