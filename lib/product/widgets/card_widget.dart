@@ -1,77 +1,77 @@
 import 'package:flutter/material.dart';
-import 'package:gym_app/product/constants/border_radius_constants.dart';
 import 'package:gym_app/product/constants/color_constants.dart';
 import 'package:gym_app/product/enums/widget_sizes.dart';
 
-class cardComponent extends StatelessWidget {
-  cardComponent(
+class CardComponent extends StatelessWidget {
+  CardComponent(
       {Key? key,
       required this.cardTitle,
-      required this.cardTypeTitle,
+      required this.cardSubtitle,
       required this.imagePath})
       : super(key: key);
   final String cardTitle;
-  final String cardTypeTitle;
+  final String cardSubtitle;
   final String imagePath;
 
-  EdgeInsets onlyLeftPadding = const EdgeInsets.only(left: 10);
-  EdgeInsets textTopLeftPadding = const EdgeInsets.only(top: 12, left: 5);
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      width: widgetSizes.cardWidth.value,
-      height: widgetSizes.cardheight.value,
-      child: Card(
-        clipBehavior: Clip.antiAlias,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadiusConstants.cardBorderRadius,
-        ),
-        child: Stack(
-          children: [
-            Ink.image(
-              image: AssetImage(imagePath),
-              fit: BoxFit.cover,
-              child: InkWell(
-                onTap: () {},
-              ),
-            ),
-            Padding(
-              padding: onlyLeftPadding,
-              child: Column(
+    return InkWell(
+        onTap: () {},
+        child: SizedBox(
+          width: WidgetSizes.cardWidth.value,
+          height: WidgetSizes.cardHeight.value,
+          child: Card(
+              margin: EdgeInsets.zero,
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(12)),
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
                 crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  Text(
-                    cardTitle,
-                    style: Theme.of(context).textTheme.headline5,
-                  ),
                   SizedBox(
-                    height: 50,
-                    child: Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        const VerticalDivider(
-                          color: ColorsConstants.blue_Color,
-                          thickness: 4,
-                          indent: 12,
-                          endIndent: 12,
+                      width: 82,
+                      height: WidgetSizes.cardHeight.value,
+                      child: ClipRRect(
+                        borderRadius: const BorderRadius.horizontal(
+                            left: Radius.circular(12)),
+                        child: Image.asset(
+                          imagePath,
+                          fit: BoxFit.cover,
                         ),
-                        Padding(
-                          padding: textTopLeftPadding,
-                          child: Text(
-                            cardTypeTitle,
-                            style: Theme.of(context).textTheme.headline6,
+                      )),
+                  Padding(
+                      padding: const EdgeInsets.all(10),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          SizedBox(
+                            width: 225,
+                            child: Text(
+                              cardTitle,
+                              overflow: TextOverflow.ellipsis,
+                              maxLines: 2,
+                              style: const TextStyle(
+                                color: ColorsConstants.white_Color,
+                                fontSize: 16,
+                                fontWeight: FontWeight.w500,
+                              ),
+                            ),
                           ),
-                        )
-                      ],
-                    ),
-                  ),
+                          Padding(
+                            padding: const EdgeInsets.only(top: 3),
+                            child: Text(
+                              cardSubtitle,
+                              style: const TextStyle(
+                                color: ColorsConstants.blue_Color,
+                                fontSize: 13,
+                              ),
+                            ),
+                          )
+                        ],
+                      ))
                 ],
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
+              )),
+        ));
   }
 }
