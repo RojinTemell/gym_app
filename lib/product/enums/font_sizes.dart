@@ -1,10 +1,13 @@
-enum fontSizes {
+enum FontSizes {
   h1(36),
   h2(32),
   h3(20),
-  h4(10);
+  h4(10),
+  videoCardTitle(16),
+  videoCardSubtitle(13),
+  genderButtonLabel(15);
 
   final double value;
 
-  const fontSizes(this.value);
+  const FontSizes(this.value);
 }

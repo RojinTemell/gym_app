@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:gym_app/product/constants/border_radius_constants.dart';
 import 'package:gym_app/product/constants/color_constants.dart';
+import 'package:gym_app/product/enums/font_sizes.dart';
 import 'package:gym_app/product/enums/widget_sizes.dart';
 
-class CardComponent extends StatelessWidget {
-  CardComponent(
+class VideoCardComponent extends StatelessWidget {
+  VideoCardComponent(
       {Key? key,
       required this.cardTitle,
       required this.cardSubtitle,
@@ -18,22 +20,22 @@ class CardComponent extends StatelessWidget {
     return InkWell(
         onTap: () {},
         child: SizedBox(
-          width: WidgetSizes.cardWidth.value,
-          height: WidgetSizes.cardHeight.value,
+          width: WidgetSizes.videoCardWidth.value,
+          height: WidgetSizes.videoCardHeight.value,
           child: Card(
               margin: EdgeInsets.zero,
               shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(12)),
+                  borderRadius: BorderRadiusConstants.videoCardBorderRadius),
               child: Row(
                 mainAxisSize: MainAxisSize.min,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   SizedBox(
-                      width: 82,
-                      height: WidgetSizes.cardHeight.value,
+                      width: WidgetSizes.videoCardImageWidth.value,
+                      height: WidgetSizes.videoCardHeight.value,
                       child: ClipRRect(
-                        borderRadius: const BorderRadius.horizontal(
-                            left: Radius.circular(12)),
+                        borderRadius: BorderRadius.horizontal(
+                            left: BorderRadiusConstants.videoCardRadius),
                         child: Image.asset(
                           imagePath,
                           fit: BoxFit.cover,
@@ -46,14 +48,14 @@ class CardComponent extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           SizedBox(
-                            width: 225,
+                            width: WidgetSizes.videoCardWidth.value - WidgetSizes.videoCardImageWidth.value - 20,
                             child: Text(
                               cardTitle,
                               overflow: TextOverflow.ellipsis,
                               maxLines: 2,
-                              style: const TextStyle(
+                              style: TextStyle(
                                 color: ColorsConstants.white_Color,
-                                fontSize: 16,
+                                fontSize: FontSizes.videoCardTitle.value,
                                 fontWeight: FontWeight.w500,
                               ),
                             ),
@@ -62,9 +64,9 @@ class CardComponent extends StatelessWidget {
                             padding: const EdgeInsets.only(top: 3),
                             child: Text(
                               cardSubtitle,
-                              style: const TextStyle(
+                              style: TextStyle(
                                 color: ColorsConstants.blue_Color,
-                                fontSize: 13,
+                                fontSize: FontSizes.videoCardTitle.value,
                               ),
                             ),
                           )

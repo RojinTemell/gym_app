@@ -1,6 +1,9 @@
 enum WidgetSizes {
-  cardHeight(76),
-  cardWidth(327);
+  videoCardHeight(76),
+  videoCardWidth(327),
+  videoCardImageWidth(82),
+  elevatedButtonHeight(50),
+  genderButtonSize(140);
 
   final double value;
 

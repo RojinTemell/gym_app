@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:gym_app/product/constants/border_radius_constants.dart';
 import 'package:gym_app/product/constants/color_constants.dart';
+import 'package:gym_app/product/enums/widget_sizes.dart';
 
-class elevatedButtonComponent extends StatelessWidget {
-  elevatedButtonComponent(
+class ElevatedButtonComponent extends StatelessWidget {
+  ElevatedButtonComponent(
       {required this.buttonWidth,
       required this.buttonText,
       this.buttonIcon,
@@ -15,15 +17,20 @@ class elevatedButtonComponent extends StatelessWidget {
   Widget build(BuildContext context) {
     return ElevatedButton(
         onPressed: () {},
+        style: ElevatedButton.styleFrom(
+          shape: RoundedRectangleBorder(
+              borderRadius: BorderRadiusConstants.elevatedButtonBorderRadius),
+          backgroundColor: ColorsConstants.blue_Color,
+        ),
         child: SizedBox(
             width: buttonWidth,
-            height: 50,
+            height: WidgetSizes.elevatedButtonHeight.value,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
                   buttonText,
-                  style: TextStyle(
+                  style: const TextStyle(
                     color: ColorsConstants.black_color,
                   ),
                 ),
@@ -32,13 +39,8 @@ class elevatedButtonComponent extends StatelessWidget {
                         buttonIcon,
                         color: ColorsConstants.black_color,
                       )
-                    : Text("")
+                    : const Text("")
               ],
-            )),
-        style: ElevatedButton.styleFrom(
-          shape:
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(100)),
-          backgroundColor: ColorsConstants.blue_Color,
-        ));
+            )));
   }
 }
