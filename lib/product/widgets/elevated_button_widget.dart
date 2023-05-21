@@ -4,7 +4,7 @@ import 'package:gym_app/product/constants/color_constants.dart';
 import 'package:gym_app/product/enums/widget_sizes.dart';
 
 class ElevatedButtonComponent extends StatelessWidget {
-  ElevatedButtonComponent(
+  const ElevatedButtonComponent(
       {required this.buttonWidth,
       required this.buttonText,
       this.buttonIcon,
@@ -20,7 +20,7 @@ class ElevatedButtonComponent extends StatelessWidget {
         style: ElevatedButton.styleFrom(
           shape: RoundedRectangleBorder(
               borderRadius: BorderRadiusConstants.elevatedButtonBorderRadius),
-          backgroundColor: ColorsConstants.blue_Color,
+          backgroundColor: ColorsConstants.blueColor,
         ),
         child: SizedBox(
             width: buttonWidth,
@@ -31,13 +31,13 @@ class ElevatedButtonComponent extends StatelessWidget {
                 Text(
                   buttonText,
                   style: const TextStyle(
-                    color: ColorsConstants.black_color,
+                    color: ColorsConstants.blackcolor,
                   ),
                 ),
                 buttonIcon != null
                     ? Icon(
                         buttonIcon,
-                        color: ColorsConstants.black_color,
+                        color: ColorsConstants.blackcolor,
                       )
                     : const Text("")
               ],

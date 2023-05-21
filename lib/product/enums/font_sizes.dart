@@ -5,7 +5,9 @@ enum FontSizes {
   h4(10),
   videoCardTitle(16),
   videoCardSubtitle(13),
-  genderButtonLabel(15);
+  genderButtonLabel(15),
+  firstPageTitle(50),
+  firstPageSubTitle(40);
 
   final double value;
 

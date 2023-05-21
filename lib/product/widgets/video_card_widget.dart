@@ -5,7 +5,7 @@ import 'package:gym_app/product/enums/font_sizes.dart';
 import 'package:gym_app/product/enums/widget_sizes.dart';
 
 class VideoCardComponent extends StatelessWidget {
-  VideoCardComponent(
+  const VideoCardComponent(
       {Key? key,
       required this.cardTitle,
       required this.cardSubtitle,
@@ -48,13 +48,15 @@ class VideoCardComponent extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           SizedBox(
-                            width: WidgetSizes.videoCardWidth.value - WidgetSizes.videoCardImageWidth.value - 20,
+                            width: WidgetSizes.videoCardWidth.value -
+                                WidgetSizes.videoCardImageWidth.value -
+                                20,
                             child: Text(
                               cardTitle,
                               overflow: TextOverflow.ellipsis,
                               maxLines: 2,
                               style: TextStyle(
-                                color: ColorsConstants.white_Color,
+                                color: ColorsConstants.whiteColor,
                                 fontSize: FontSizes.videoCardTitle.value,
                                 fontWeight: FontWeight.w500,
                               ),
@@ -65,7 +67,7 @@ class VideoCardComponent extends StatelessWidget {
                             child: Text(
                               cardSubtitle,
                               style: TextStyle(
-                                color: ColorsConstants.blue_Color,
+                                color: ColorsConstants.blueColor,
                                 fontSize: FontSizes.videoCardTitle.value,
                               ),
                             ),
