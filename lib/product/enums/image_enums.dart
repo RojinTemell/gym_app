@@ -1,7 +1,8 @@
 enum ImageEnums {
   cardImage('gym_photo1'),
   firstPageImage('firstPageImage'),
-  secondPage1Image('secondPage1');
+  secondPage1Image('secondPage1'),
+  secondPage2Image('secondPage2');
 
   final String value;
   const ImageEnums(this.value);

@@ -1,8 +1,8 @@
 enum FontSizes {
   h1(36),
   h2(32),
-  h3(20),
-  h4(10),
+  h3(24),
+  h4(17),
   videoCardTitle(16),
   videoCardSubtitle(13),
   genderButtonLabel(15),

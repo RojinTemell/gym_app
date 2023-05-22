@@ -9,4 +9,6 @@ class StringConstants {
   static const String firstPageSubTitle = "MUSCLES";
   static const String secondPage1Title = "MEET YOUR COACH ,";
   static const String secondPage1SubTitle = "START YOUR JOURNEY";
+  static const String secondPage2Title = "CREATE A WORKOUT PLAN";
+  static const String secondPage2SubTitle = "TO STAY FIT";
 }
