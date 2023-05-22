@@ -4,6 +4,7 @@ import 'package:gym_app/product/enums/font_sizes.dart';
 import 'package:gym_app/product/enums/gender.dart';
 import 'package:gym_app/product/enums/widget_sizes.dart';
 
+// ignore: must_be_immutable
 class GenderButtonComponent extends StatelessWidget {
   GenderButtonComponent({Key? key, required this.gender}) : super(key: key);
   final Gender gender;
