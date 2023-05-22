@@ -3,8 +3,9 @@ import 'package:gym_app/product/constants/border_radius_constants.dart';
 import 'package:gym_app/product/constants/color_constants.dart';
 import 'package:gym_app/product/enums/widget_sizes.dart';
 
-class cardComponent extends StatelessWidget {
-  cardComponent(
+// ignore: must_be_immutable
+class CardComponent extends StatelessWidget {
+  CardComponent(
       {Key? key,
       required this.cardTitle,
       required this.cardTypeTitle,

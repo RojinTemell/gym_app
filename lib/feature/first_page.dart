@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:gym_app/feature/ornek.dart';
 import 'package:gym_app/product/constants/color_constants.dart';
 import 'package:gym_app/product/constants/string_constants.dart';
 import 'package:gym_app/product/enums/font_sizes.dart';
 import 'package:gym_app/product/enums/font_weight.dart';
 import 'package:gym_app/product/enums/image_enums.dart';
 import 'package:gym_app/product/widgets/title_widget.dart';
+import 'secondPages/second_page1.dart';
 
 class FirstPage extends StatefulWidget {
   const FirstPage({super.key});
@@ -21,11 +21,12 @@ class _FirstPageState extends State<FirstPage> {
     Future.delayed(const Duration(seconds: 3), () {
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (context) => const Ornek()),
+        MaterialPageRoute(builder: (context) => const SecondPage1()),
       );
     });
   }
 
+  final EdgeInsets onlyTopPadding = const EdgeInsets.only(top: 10);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -39,11 +40,14 @@ class _FirstPageState extends State<FirstPage> {
               height: 120,
               color: ColorsConstants.whiteColor,
             ),
-            const TitleComponent(
-              text: StringConstants.firstPageTitle,
-              size: FontSizes.firstPageTitle,
-              weight: FontWeights.bold,
-              color: ColorsConstants.blueColor,
+            Padding(
+              padding: onlyTopPadding,
+              child: const TitleComponent(
+                text: StringConstants.firstPageTitle,
+                size: FontSizes.firstPageTitle,
+                weight: FontWeights.bold,
+                color: ColorsConstants.blueColor,
+              ),
             ),
             const TitleComponent(
               text: StringConstants.firstPageSubTitle,
