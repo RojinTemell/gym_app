@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gym_app/product/constants/color_constants.dart';
 
 void main() {
   runApp(const MyApp());
@@ -12,7 +13,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
-      theme: ThemeData.dark(),
+      theme: ThemeData.dark().copyWith(
+        scaffoldBackgroundColor: ColorsConstants.sharkColor,
+      ),
     );
   }
 }
