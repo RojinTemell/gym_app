@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gym_app/product/constants/border_radius_constants.dart';
 import 'package:gym_app/product/constants/color_constants.dart';
+import 'package:gym_app/product/enums/font_sizes.dart';
 import 'package:gym_app/product/enums/widget_sizes.dart';
 
 class ElevatedButtonComponent extends StatelessWidget {
@@ -30,8 +31,9 @@ class ElevatedButtonComponent extends StatelessWidget {
               children: [
                 Text(
                   buttonText,
-                  style: const TextStyle(
+                  style: TextStyle(
                     color: ColorsConstants.blackcolor,
+                    fontSize: FontSizes.h4.value,
                   ),
                 ),
                 buttonIcon != null
