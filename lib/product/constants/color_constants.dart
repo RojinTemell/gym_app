@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 @immutable
 class ColorsConstants {
   const ColorsConstants._();
-  static const Color blue_Color = Color.fromRGBO(84, 148, 245, 1);
-  static const Color tuna_Color = Color.fromRGBO(58, 58, 60, 1);
-  static const Color shark_Color = Color.fromRGBO(44, 44, 46, 1);
-  static const Color black_color = Colors.black;
-  static const Color white_Color = Colors.white;
+  static const Color blueColor = Color.fromRGBO(84, 148, 245, 1);
+  static const Color tunaColor = Color.fromRGBO(58, 58, 60, 1);
+  static const Color sharkColor = Color.fromRGBO(44, 44, 46, 1);
+  static const Color blackcolor = Colors.black;
+  static const Color whiteColor = Colors.white;
 }
