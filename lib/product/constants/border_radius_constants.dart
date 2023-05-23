@@ -8,4 +8,5 @@ class BorderRadiusConstants {
   static BorderRadius cardBorderRadius = BorderRadius.circular(16);
   static BorderRadius elevatedButtonBorderRadius = BorderRadius.circular(100);
   static Radius videoCardRadius = const Radius.circular(12);
+  static BorderRadius numberInputBorderRadius = BorderRadius.circular(12);
 }
