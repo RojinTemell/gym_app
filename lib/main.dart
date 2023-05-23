@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gym_app/feature/gender_select_page.dart';
 import 'package:gym_app/product/constants/color_constants.dart';
 
 void main() {
@@ -16,6 +17,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData.dark().copyWith(
         scaffoldBackgroundColor: ColorsConstants.sharkColor,
       ),
+      home: GenderSelectPage(),
     );
   }
 }

@@ -14,4 +14,8 @@ class StringConstants {
   static const String secondPage3Title = "ACTION IS THE";
   static const String secondPage3SubTitle = "KEY TO ALL SUCCESS";
   static const String secondPage3ButtonText = "Start Now";
+  static const String genderSelectPageTitle = "TELL US ABOUT YOURSELF!";
+  static const String genderSelectPageSubTitle =
+      "TO GIVE YOU A BETTER EXPERIENCE WE NEED TO KNOW YOUR GENDER";
+  static const String nextButtonText = "Next";
 }

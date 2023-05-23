@@ -33,7 +33,7 @@ class ElevatedButtonComponent extends StatelessWidget {
                   buttonText,
                   style: TextStyle(
                     color: ColorsConstants.blackcolor,
-                    fontSize: FontSizes.h4.value,
+                    fontSize: FontSizes.h5.value,
                   ),
                 ),
                 buttonIcon != null
