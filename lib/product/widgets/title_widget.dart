@@ -20,6 +20,7 @@ class TitleComponent extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       text,
+      textAlign: TextAlign.center,
       style: TextStyle(
         fontFamily: 'IntegralCF',
         fontWeight: weight.value,
