@@ -17,5 +17,12 @@ class StringConstants {
   static const String genderSelectPageTitle = "TELL US ABOUT YOURSELF!";
   static const String genderSelectPageSubTitle =
       "TO GIVE YOU A BETTER EXPERIENCE WE NEED TO KNOW YOUR GENDER";
+  static const String ageHeightWeightPageTitle =
+      "WHAT IS YOUR HEIGHT, WEIGHT AND AGE?";
+  static const String ageHeightWeightPageSubTitle =
+      "THIS HELPS US CREATE YOUR PERSONALIZED PLAN";
   static const String nextButtonText = "Next";
+  static const String ageInput = "Your Age";
+  static const String heightInput = "Your Height in cm";
+  static const String weightInput = "Your Weight in kg";
 }
