@@ -14,6 +14,7 @@ class SecondPage extends StatefulWidget {
 class _SecondPageState extends State<SecondPage> {
   final PageController _pageController = PageController(initialPage: 0);
   @override
+  // ignore: override_on_non_overriding_member
   int _activePage = 0;
 
   final List<Widget> _pages = [
@@ -43,30 +44,28 @@ class _SecondPageState extends State<SecondPage> {
               left: 0,
               right: 0,
               height: 100,
-              child: Container(
-                child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: List<Widget>.generate(
-                      _pages.length,
-                      (index) => Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 5),
-                        child: InkWell(
-                          onTap: () {
-                            _pageController.animateToPage(index,
-                                duration: const Duration(milliseconds: 400),
-                                curve: Curves.easeIn);
-                          },
-                          child: Container(
-                            width: _activePage == index ? 40 : 20,
-                            height: 5,
-                            color: _activePage == index
-                                ? ColorsConstants.blueColor
-                                : ColorsConstants.tunaColor,
-                          ),
+              child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: List<Widget>.generate(
+                    _pages.length,
+                    (index) => Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 5),
+                      child: InkWell(
+                        onTap: () {
+                          _pageController.animateToPage(index,
+                              duration: const Duration(milliseconds: 400),
+                              curve: Curves.easeIn);
+                        },
+                        child: Container(
+                          width: _activePage == index ? 50 : 22,
+                          height: 7,
+                          color: _activePage == index
+                              ? ColorsConstants.blueColor
+                              : ColorsConstants.tunaColor,
                         ),
                       ),
-                    )),
-              ))
+                    ),
+                  )))
         ],
       ),
     );

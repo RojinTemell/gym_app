@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gym_app/feature/first_page.dart';
 import 'package:gym_app/product/constants/string_constants.dart';
 import 'package:gym_app/product/enums/font_sizes.dart';
 import 'package:gym_app/product/enums/font_weight.dart';
@@ -37,14 +38,15 @@ class GenderSelectPage extends StatelessWidget {
           SizedBox(
             width: selectorContainerWidth,
             height: selectorContainerHeight,
-            child: GenderSelector(),
+            child: const GenderSelector(),
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
               Padding(
                 padding: onlyRightPadding,
-                child: const ElevatedButtonComponent(
+                child: ElevatedButtonComponent(
+                  widget: const FirstPage(),
                   buttonWidth: 100,
                   buttonText: StringConstants.nextButtonText,
                   buttonIcon: Icons.play_arrow,

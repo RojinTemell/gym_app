@@ -5,6 +5,8 @@ import '../enums/gender.dart';
 import 'gender_button_widget.dart';
 
 class GenderSelector extends StatefulWidget {
+  const GenderSelector({super.key});
+
   @override
   SelectGender createState() => SelectGender();
 }

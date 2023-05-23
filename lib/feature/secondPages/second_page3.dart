@@ -7,6 +7,7 @@ import 'package:gym_app/product/widgets/elevated_button_widget.dart';
 import 'package:gym_app/product/widgets/title_widget.dart';
 
 import '../../product/constants/clipper_constants.dart';
+import '../gender_select_page.dart';
 
 class SecondPage3 extends StatelessWidget {
   const SecondPage3({super.key});
@@ -41,7 +42,8 @@ class SecondPage3 extends StatelessWidget {
             weight: FontWeights.bold),
         Padding(
           padding: onlyTopPadding,
-          child: const ElevatedButtonComponent(
+          child: ElevatedButtonComponent(
+            widget: const GenderSelectPage(),
             buttonWidth: 185,
             buttonText: StringConstants.secondPage3ButtonText,
             buttonIcon: Icons.play_arrow,
