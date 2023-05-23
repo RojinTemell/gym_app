@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:gym_app/feature/secondPages/second_page.dart';
 import 'package:gym_app/product/constants/color_constants.dart';
 import 'package:gym_app/product/constants/string_constants.dart';
 import 'package:gym_app/product/enums/font_sizes.dart';
 import 'package:gym_app/product/enums/font_weight.dart';
 import 'package:gym_app/product/enums/image_enums.dart';
 import 'package:gym_app/product/widgets/title_widget.dart';
-import 'secondPages/second_page1.dart';
 
 class FirstPage extends StatefulWidget {
   const FirstPage({super.key});
@@ -18,10 +18,10 @@ class _FirstPageState extends State<FirstPage> {
   @override
   void initState() {
     super.initState();
-    Future.delayed(const Duration(seconds: 3), () {
+    Future.delayed(const Duration(seconds: 5), () {
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (context) => const SecondPage1()),
+        MaterialPageRoute(builder: (context) => const SecondPage()),
       );
     });
   }
