@@ -6,8 +6,10 @@ import 'package:gym_app/product/enums/widget_sizes.dart';
 
 // ignore: must_be_immutable
 class NumberInputComponent extends StatelessWidget {
-  const NumberInputComponent({Key? key, required this.text}) : super(key: key);
+  NumberInputComponent({Key? key, required this.text, this.isLast = false})
+      : super(key: key);
   final String text;
+  bool isLast;
   final double gap = 10;
   final EdgeInsets onlyBottomMargin = const EdgeInsets.only(bottom: 20);
 
@@ -32,8 +34,11 @@ class NumberInputComponent extends StatelessWidget {
               ),
             ),
             TextField(
+              textInputAction:
+                  isLast ? TextInputAction.done : TextInputAction.next,
               keyboardType: TextInputType.number,
               keyboardAppearance: Brightness.dark,
+              textAlign: TextAlign.center,
               style: TextStyle(
                 fontSize: FontSizes.h1.value,
               ),
