@@ -5,6 +5,7 @@ import 'package:gym_app/product/enums/font_sizes.dart';
 import 'package:gym_app/product/enums/font_weight.dart';
 import 'package:gym_app/product/enums/image_enums.dart';
 import 'package:gym_app/product/enums/text_field_type.dart';
+import 'package:gym_app/product/widgets/image_shadow_widget.dart';
 import 'package:gym_app/product/widgets/text_button_widget.dart';
 import 'package:gym_app/product/widgets/text_input_widget.dart';
 import 'package:gym_app/product/widgets/title_widget.dart';
@@ -36,30 +37,18 @@ class _LoginPage extends State<LoginPage> {
         children: [
           Stack(
             children: [
-              ShaderMask(
-                shaderCallback: (rect) {
-                  return const LinearGradient(
-                    begin: Alignment.topCenter,
-                    end: Alignment.bottomCenter,
-                    colors: [
-                      Color.fromARGB(154, 0, 0, 0),
-                      Color.fromARGB(32, 0, 0, 0)
-                    ],
-                  ).createShader(Rect.fromLTRB(0, 0, rect.width, rect.height));
-                },
-                blendMode: BlendMode.dstIn,
-                child: ClipPath(
+              ClipPath(
                   clipper: BackgroundClipper(),
-                  child: SizedBox(
-                    width: double.infinity,
-                    height: imageHeight,
-                    child: Image.asset(
-                      ImageEnums.loginPageImage.toJpg,
-                      fit: BoxFit.cover,
+                  child: ImageShadowComponent(
+                    widget: SizedBox(
+                      width: double.infinity,
+                      height: imageHeight,
+                      child: Image.asset(
+                        ImageEnums.loginPageImage.toJpg,
+                        fit: BoxFit.cover,
+                      ),
                     ),
-                  ),
-                ),
-              ),
+                  )),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
