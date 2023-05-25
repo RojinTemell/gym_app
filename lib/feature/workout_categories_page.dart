@@ -18,6 +18,7 @@ class _WorkoutCategoriesPageState extends State<WorkoutCategoriesPage>
   @override
   Widget build(BuildContext context) {
     TabController tabController = TabController(length: 3, vsync: this);
+    EdgeInsets horizontalPadding = const EdgeInsets.symmetric(horizontal: 28);
 
     return Scaffold(
       appBar: AppBar(
@@ -64,39 +65,43 @@ class _WorkoutCategoriesPageState extends State<WorkoutCategoriesPage>
           ),
         ),
         Expanded(
-            child: TabBarView(
-          controller: tabController,
-          children: [
-            ListView.builder(
-                scrollDirection: Axis.vertical,
-                shrinkWrap: true,
-                itemCount: 4,
-                itemBuilder: (context, index) {
-                  return CardComponent(
-                      cardTitle: StringConstants.cardTitle,
-                      cardTypeTitle: StringConstants.cardTypeName,
-                      imagePath: ImageEnums.cardImage.toJpg);
-                }),
-            ListView.builder(
-                shrinkWrap: true,
-                itemCount: 3,
-                itemBuilder: (context, index) {
-                  return CardComponent(
-                      cardTitle: StringConstants.cardTitle,
-                      cardTypeTitle: StringConstants.cardTypeName,
-                      imagePath: ImageEnums.cardImage.toJpg);
-                }),
-            ListView.builder(
-                shrinkWrap: true,
-                itemCount: 4,
-                itemBuilder: (context, index) {
-                  return CardComponent(
-                      cardTitle: StringConstants.cardTitle,
-                      cardTypeTitle: StringConstants.cardTypeName,
-                      imagePath: ImageEnums.cardImage.toJpg);
-                })
-          ],
-        )),
+            child: Padding(
+                padding: horizontalPadding,
+                child: TabBarView(
+                  controller: tabController,
+                  children: [
+                    ListView.builder(
+                        scrollDirection: Axis.vertical,
+                        shrinkWrap: true,
+                        itemCount: 4,
+                        itemBuilder: (context, index) {
+                          return CardComponent(
+                              cardTitle: StringConstants.cardTitle,
+                              cardTypeTitle: StringConstants.cardTypeName,
+                              imagePath: ImageEnums.cardImage.toJpg);
+                        }),
+                    ListView.builder(
+                        scrollDirection: Axis.vertical,
+                        shrinkWrap: true,
+                        itemCount: 3,
+                        itemBuilder: (context, index) {
+                          return CardComponent(
+                              cardTitle: StringConstants.cardTitle,
+                              cardTypeTitle: StringConstants.cardTypeName,
+                              imagePath: ImageEnums.cardImage.toJpg);
+                        }),
+                    ListView.builder(
+                        scrollDirection: Axis.vertical,
+                        shrinkWrap: true,
+                        itemCount: 4,
+                        itemBuilder: (context, index) {
+                          return CardComponent(
+                              cardTitle: StringConstants.cardTitle,
+                              cardTypeTitle: StringConstants.cardTypeName,
+                              imagePath: ImageEnums.cardImage.toJpg);
+                        }),
+                  ],
+                ))),
       ]),
     );
   }
