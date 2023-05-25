@@ -21,7 +21,15 @@ class StringConstants {
       "WHAT IS YOUR HEIGHT, WEIGHT AND AGE?";
   static const String ageHeightWeightPageSubTitle =
       "THIS HELPS US CREATE YOUR PERSONALIZED PLAN";
+  static const String loginPageTitle = "WELCOME BACK,";
+  static const String loginPageSubTitle = "ARE YOU READY?";
+  static const String signUpPageTitle = "HELLO ROOKIES!";
+  static const String signUpPageSubTitle =
+      "ENTER YOUR INFORMATIONS BELOW OR LOGIN WITH A OTHER ACCOUNT";
   static const String nextButtonText = "Next";
+  static const String loginButtonText = "Login";
+  static const String signupButtonText = "Sign Up";
+  static const String forgetPasswordButtonText = "Forget Password";
   static const String ageInput = "Your Age";
   static const String heightInput = "Your Height in cm";
   static const String weightInput = "Your Weight in kg";
@@ -29,4 +37,5 @@ class StringConstants {
   static const String workoutDetailPlanTitle = " Workouts for Beginner";
   static const String workoutDetailPlanDescription =
       "Want your body to be healthy. Join our program with directions according to body’s goals. Increasing physical strength is the goal of strenght training. Maintain body fitness by doing physical exercise at least 2-3 times a week.  ";
+  static const String loginErrorText = "Please fill input";
 }
