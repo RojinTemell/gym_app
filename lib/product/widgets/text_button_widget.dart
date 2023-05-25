@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:gym_app/product/constants/color_constants.dart';
-import 'package:gym_app/product/enums/font_sizes.dart';
 import 'package:gym_app/product/mixins/navigatorManager.dart';
 
 class TextButtonComponent extends StatelessWidget with NavigatorManager {
@@ -13,10 +12,11 @@ class TextButtonComponent extends StatelessWidget with NavigatorManager {
   final String buttonText;
   final Widget widget;
   final bool isActive;
+  final EdgeInsets margin = const EdgeInsets.all(20);
   @override
   Widget build(BuildContext context) {
     return Container(
-        margin: EdgeInsets.all(20),
+        margin: margin,
         decoration: BoxDecoration(
             border: Border(
                 bottom: BorderSide(

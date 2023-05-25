@@ -13,6 +13,8 @@ class TextInputComponent extends StatelessWidget {
     return Padding(
       padding: padding,
       child: TextFormField(
+        scrollPadding: EdgeInsets.only(
+            bottom: MediaQuery.of(context).viewInsets.bottom + 14 * 4),
         controller: controller,
         obscureText: type == TextFieldType.password,
         decoration: InputDecoration(labelText: type.value),
