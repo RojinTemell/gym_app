@@ -6,10 +6,10 @@ import 'package:gym_app/product/enums/widget_sizes.dart';
 
 // ignore: must_be_immutable
 class NumberInputComponent extends StatelessWidget {
-  NumberInputComponent({Key? key, required this.text}) : super(key: key);
+  const NumberInputComponent({Key? key, required this.text}) : super(key: key);
   final String text;
   final double gap = 10;
-  final EdgeInsets onlyBottomMargin = EdgeInsets.only(bottom: 20);
+  final EdgeInsets onlyBottomMargin = const EdgeInsets.only(bottom: 20);
 
   @override
   Widget build(BuildContext context) {

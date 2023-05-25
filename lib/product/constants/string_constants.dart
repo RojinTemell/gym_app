@@ -25,4 +25,8 @@ class StringConstants {
   static const String ageInput = "Your Age";
   static const String heightInput = "Your Height in cm";
   static const String weightInput = "Your Weight in kg";
+  static const String workoutCategoriesTitle = "Workout Categories";
+  static const String workoutDetailPlanTitle = " Workouts for Beginner";
+  static const String workoutDetailPlanDescription =
+      "Want your body to be healthy. Join our program with directions according to body’s goals. Increasing physical strength is the goal of strenght training. Maintain body fitness by doing physical exercise at least 2-3 times a week.  ";
 }

@@ -46,9 +46,9 @@ class AgeHeightWeightPage extends StatelessWidget {
                     size: FontSizes.h6,
                     weight: FontWeights.normal),
               ),
-              NumberInputComponent(text: StringConstants.ageInput),
-              NumberInputComponent(text: StringConstants.heightInput),
-              NumberInputComponent(text: StringConstants.weightInput),
+              const NumberInputComponent(text: StringConstants.ageInput),
+              const NumberInputComponent(text: StringConstants.heightInput),
+              const NumberInputComponent(text: StringConstants.weightInput),
               Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [

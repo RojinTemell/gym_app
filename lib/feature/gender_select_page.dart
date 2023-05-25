@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:gym_app/feature/age_height_weight_page.dart';
-import 'package:gym_app/feature/first_page.dart';
 import 'package:gym_app/product/constants/string_constants.dart';
 import 'package:gym_app/product/enums/font_sizes.dart';
 import 'package:gym_app/product/enums/font_weight.dart';

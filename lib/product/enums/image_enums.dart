@@ -3,7 +3,8 @@ enum ImageEnums {
   firstPageImage('firstPageImage'),
   secondPage1Image('secondPage1'),
   secondPage2Image('secondPage2'),
-  secondPage3Image('secondPage3');
+  secondPage3Image('secondPage3'),
+  workoutPlanDetailPage('workoutPlanDetailPage');
 
   final String value;
   const ImageEnums(this.value);
