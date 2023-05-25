@@ -20,53 +20,59 @@ class AgeHeightWeightPage extends StatelessWidget {
   final EdgeInsets floatingButtonPadding = const EdgeInsets.only(bottom: 5);
   @override
   Widget build(BuildContext context) {
+    bool showFab = MediaQuery.of(context).viewInsets.bottom != 0;
     return Scaffold(
-        floatingActionButton: Padding(
-          padding: floatingButtonPadding,
-          child:
-              const FloatingActionButtonComponent(widget: GenderSelectPage()),
+        floatingActionButton: Visibility(
+          visible: !showFab,
+          child: Padding(
+            padding: floatingButtonPadding,
+            child:
+                const FloatingActionButtonComponent(widget: GenderSelectPage()),
+          ),
         ),
         floatingActionButtonLocation: FloatingActionButtonLocation.startFloat,
-        resizeToAvoidBottomInset: false,
-        body: Center(
-          child: Column(
-            children: [
-              Padding(
-                  padding: onlyTopPadding,
-                  child: SizedBox(
-                    width: subtitleWidth + 150,
-                    child: const TitleComponent(
-                        text: StringConstants.ageHeightWeightPageTitle,
-                        size: FontSizes.h4,
-                        weight: FontWeights.bold),
-                  )),
-              Container(
-                padding: verticalPadding,
-                width: subtitleWidth,
-                child: const TitleComponent(
-                    text: StringConstants.ageHeightWeightPageSubTitle,
-                    size: FontSizes.h6,
-                    weight: FontWeights.normal),
-              ),
-              const NumberInputComponent(text: StringConstants.ageInput),
-              const NumberInputComponent(text: StringConstants.heightInput),
-              const NumberInputComponent(text: StringConstants.weightInput),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  Padding(
-                    padding: onlyRightPadding,
-                    child: ElevatedButtonComponent(
-                      widget: const LoginPage(),
-                      buttonWidth: 100,
-                      buttonText: StringConstants.nextButtonText,
-                      buttonIcon: Icons.play_arrow,
-                    ),
-                  )
-                ],
-              )
-            ],
-          ),
-        ));
+        body: SingleChildScrollView(
+            child: Center(
+                child: Column(
+          children: [
+            Padding(
+                padding: onlyTopPadding,
+                child: SizedBox(
+                  width: subtitleWidth + 150,
+                  child: const TitleComponent(
+                      text: StringConstants.ageHeightWeightPageTitle,
+                      size: FontSizes.h4,
+                      weight: FontWeights.bold),
+                )),
+            Container(
+              padding: verticalPadding,
+              width: subtitleWidth,
+              child: const TitleComponent(
+                  text: StringConstants.ageHeightWeightPageSubTitle,
+                  size: FontSizes.h6,
+                  weight: FontWeights.normal),
+            ),
+            NumberInputComponent(text: StringConstants.ageInput),
+            NumberInputComponent(text: StringConstants.heightInput),
+            NumberInputComponent(
+              text: StringConstants.weightInput,
+              isLast: true,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                Padding(
+                  padding: onlyRightPadding,
+                  child: ElevatedButtonComponent(
+                    widget: const LoginPage(),
+                    buttonWidth: 100,
+                    buttonText: StringConstants.nextButtonText,
+                    buttonIcon: Icons.play_arrow,
+                  ),
+                )
+              ],
+            )
+          ],
+        ))));
   }
 }
