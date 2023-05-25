@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:gym_app/feature/first_page.dart';
 import 'package:gym_app/product/constants/color_constants.dart';
-
-import 'feature/workout_categories_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -18,7 +17,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData.dark().copyWith(
         scaffoldBackgroundColor: ColorsConstants.sharkColor,
       ),
-      home: const WorkoutCategoriesPage(),
+      home: const FirstPage(),
     );
   }
 }

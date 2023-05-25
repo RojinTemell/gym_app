@@ -33,7 +33,7 @@ class NumberInputComponent extends StatelessWidget {
             ),
             TextField(
               keyboardType: TextInputType.number,
-              textAlign: TextAlign.center,
+              keyboardAppearance: Brightness.dark,
               style: TextStyle(
                 fontSize: FontSizes.h1.value,
               ),
