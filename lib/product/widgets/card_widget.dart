@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:gym_app/product/constants/border_radius_constants.dart';
 import 'package:gym_app/product/constants/color_constants.dart';
 import 'package:gym_app/product/enums/widget_sizes.dart';
+import 'package:gym_app/product/widgets/image_shadow_widget.dart';
 
 // ignore: must_be_immutable
 class CardComponent extends StatelessWidget {
@@ -23,60 +24,62 @@ class CardComponent extends StatelessWidget {
     return Padding(
       padding: allPadding,
       child: SizedBox(
-        width: WidgetSizes.cardWidth.value,
-        height: WidgetSizes.cardHeight.value,
-        child: Card(
-          clipBehavior: Clip.antiAlias,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadiusConstants.cardBorderRadius,
-          ),
-          child: Stack(
-            children: [
-              Ink.image(
-                image: AssetImage(imagePath),
-                fit: BoxFit.cover,
-                child: InkWell(
-                  onTap: () {},
-                ),
-              ),
-              Padding(
-                padding: onlyLeftPadding,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    Text(
-                      cardTitle,
-                      style: Theme.of(context).textTheme.headline5,
+          width: WidgetSizes.cardWidth.value,
+          height: WidgetSizes.cardHeight.value,
+          child: Card(
+            clipBehavior: Clip.antiAlias,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadiusConstants.cardBorderRadius,
+            ),
+            child: InkWell(
+              onTap: () {},
+              child: Stack(
+                children: [
+                  ImageShadowComponent(
+                    widget: Image(
+                      image: AssetImage(imagePath),
+                      fit: BoxFit.cover,
+                      width: WidgetSizes.cardWidth.value,
                     ),
-                    SizedBox(
-                      height: 50,
-                      child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          const VerticalDivider(
-                            color: ColorsConstants.blueColor,
-                            thickness: 4,
-                            indent: 12,
-                            endIndent: 12,
+                  ),
+                  Padding(
+                    padding: onlyLeftPadding,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        Text(
+                          cardTitle,
+                          style: Theme.of(context).textTheme.headline5,
+                        ),
+                        SizedBox(
+                          height: 50,
+                          child: Row(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              const VerticalDivider(
+                                color: ColorsConstants.blueColor,
+                                thickness: 4,
+                                indent: 12,
+                                endIndent: 12,
+                              ),
+                              Padding(
+                                padding: textTopLeftPadding,
+                                child: Text(
+                                  cardTypeTitle,
+                                  style: Theme.of(context).textTheme.headline6,
+                                ),
+                              )
+                            ],
                           ),
-                          Padding(
-                            padding: textTopLeftPadding,
-                            child: Text(
-                              cardTypeTitle,
-                              style: Theme.of(context).textTheme.headline6,
-                            ),
-                          )
-                        ],
-                      ),
+                        ),
+                      ],
                     ),
-                  ],
-                ),
+                  ),
+                ],
               ),
-            ],
-          ),
-        ),
-      ),
+            ),
+          )),
     );
   }
 }
