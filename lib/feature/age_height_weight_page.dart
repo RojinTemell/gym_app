@@ -9,6 +9,8 @@ import 'package:gym_app/product/widgets/floating_button_widget.dart';
 import 'package:gym_app/product/widgets/number_input_widget.dart';
 import 'package:gym_app/product/widgets/title_widget.dart';
 
+import 'login_page.dart';
+
 class AgeHeightWeightPage extends StatelessWidget {
   const AgeHeightWeightPage({super.key});
   final double subtitleWidth = 250;
@@ -55,7 +57,7 @@ class AgeHeightWeightPage extends StatelessWidget {
                   Padding(
                     padding: onlyRightPadding,
                     child: ElevatedButtonComponent(
-                      widget: const FirstPage(),
+                      widget: const LoginPage(),
                       buttonWidth: 100,
                       buttonText: StringConstants.nextButtonText,
                       buttonIcon: Icons.play_arrow,
