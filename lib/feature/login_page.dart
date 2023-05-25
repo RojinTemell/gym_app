@@ -100,7 +100,10 @@ class _LoginPage extends State<LoginPage> {
             child:
                 Column(crossAxisAlignment: CrossAxisAlignment.end, children: [
               TextInputComponent(type: TextFieldType.email),
-              TextInputComponent(type: TextFieldType.password),
+              TextInputComponent(
+                type: TextFieldType.password,
+                isLast: true,
+              ),
               Padding(
                   padding: onlyRightPadding,
                   child: TextButton(

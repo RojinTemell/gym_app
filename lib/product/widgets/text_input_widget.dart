@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:gym_app/product/enums/text_field_type.dart';
 
 class TextInputComponent extends StatelessWidget {
-  TextInputComponent({Key? key, required this.type}) : super(key: key);
+  TextInputComponent({Key? key, required this.type, this.isLast = false})
+      : super(key: key);
   final TextFieldType type;
+  bool isLast;
   final EdgeInsets padding =
       const EdgeInsets.symmetric(horizontal: 32, vertical: 5);
 
@@ -13,8 +15,7 @@ class TextInputComponent extends StatelessWidget {
     return Padding(
       padding: padding,
       child: TextFormField(
-        scrollPadding: EdgeInsets.only(
-            bottom: MediaQuery.of(context).viewInsets.bottom + 14 * 4),
+        textInputAction: isLast ? TextInputAction.done : TextInputAction.next,
         controller: controller,
         obscureText: type == TextFieldType.password,
         decoration: InputDecoration(labelText: type.value),
