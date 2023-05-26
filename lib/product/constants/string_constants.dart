@@ -38,4 +38,7 @@ class StringConstants {
   static const String workoutDetailPlanDescription =
       "Want your body to be healthy. Join our program with directions according to body’s goals. Increasing physical strength is the goal of strenght training. Maintain body fitness by doing physical exercise at least 2-3 times a week.  ";
   static const String loginErrorText = "Please fill input";
+  static const String settingsText = "SETTINGS";
+  static const String editText = "Show All Health Data";
+  static const String notificationText = "Program Notifications";
 }
