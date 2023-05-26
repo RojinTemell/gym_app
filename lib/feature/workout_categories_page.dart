@@ -14,7 +14,11 @@ class _WorkoutCategoriesPageState extends State<WorkoutCategoriesPage>
   Widget build(BuildContext context) {
     TabController tabController = TabController(length: 3, vsync: this);
     EdgeInsets horizontalPadding = const EdgeInsets.symmetric(horizontal: 28);
-
+    double height30 = 30;
+    double tabbarWidth = 330;
+    BorderRadius borderRadius15 = BorderRadius.circular(15);
+    EdgeInsets labelPaddingHorizontal =
+        const EdgeInsets.symmetric(horizontal: 24);
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.transparent,
@@ -32,24 +36,22 @@ class _WorkoutCategoriesPageState extends State<WorkoutCategoriesPage>
         ],
       ),
       body: Column(children: [
-        const SizedBox(
-          height: 30,
+        SizedBox(
+          height: height30,
         ),
         Card(
-          shape:
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
+          shape: RoundedRectangleBorder(borderRadius: borderRadius15),
           elevation: 5,
           child: SizedBox(
-            width: 330,
-            height: 30,
+            width: tabbarWidth,
+            height: height30,
             child: TabBar(
                 indicator: BoxDecoration(
-                    borderRadius: BorderRadius.circular(15),
-                    color: Colors.blue),
+                    borderRadius: borderRadius15, color: Colors.blue),
                 controller: tabController,
                 labelColor: Colors.black,
                 unselectedLabelColor: Colors.white,
-                labelPadding: const EdgeInsets.symmetric(horizontal: 24),
+                labelPadding: labelPaddingHorizontal,
                 indicatorSize: TabBarIndicatorSize.tab,
                 isScrollable: true,
                 tabs: const [
