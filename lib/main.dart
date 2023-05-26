@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gym_app/product/index.dart';
-import 'feature/workout_plan_detail_page.dart';
+import 'feature/settings-page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData.dark().copyWith(
         scaffoldBackgroundColor: ColorsConstants.sharkColor,
       ),
-      home: const WorkoutDetailPlanPage(),
+      home: const SettingsPage(),
     );
   }
 }
