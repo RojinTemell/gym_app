@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:gym_app/product/constants/color_constants.dart';
-
+import 'package:gym_app/product/index.dart';
 import 'feature/workout_plan_detail_page.dart';
 
 void main() {

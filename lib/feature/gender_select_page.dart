@@ -1,11 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gym_app/feature/age_height_weight_page.dart';
-import 'package:gym_app/product/constants/string_constants.dart';
-import 'package:gym_app/product/enums/font_sizes.dart';
-import 'package:gym_app/product/enums/font_weight.dart';
-import 'package:gym_app/product/widgets/elevated_button_widget.dart';
-import 'package:gym_app/product/widgets/select_gender_widget.dart';
-import 'package:gym_app/product/widgets/title_widget.dart';
+import 'package:gym_app/product/index.dart';
 
 class GenderSelectPage extends StatelessWidget {
   const GenderSelectPage({super.key});

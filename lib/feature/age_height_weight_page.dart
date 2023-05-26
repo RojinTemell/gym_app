@@ -1,13 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:gym_app/feature/first_page.dart';
 import 'package:gym_app/feature/gender_select_page.dart';
-import 'package:gym_app/product/constants/string_constants.dart';
-import 'package:gym_app/product/enums/font_sizes.dart';
-import 'package:gym_app/product/enums/font_weight.dart';
-import 'package:gym_app/product/widgets/elevated_button_widget.dart';
-import 'package:gym_app/product/widgets/floating_button_widget.dart';
-import 'package:gym_app/product/widgets/number_input_widget.dart';
-import 'package:gym_app/product/widgets/title_widget.dart';
+import 'package:gym_app/product/index.dart';
 
 import 'login_page.dart';
 

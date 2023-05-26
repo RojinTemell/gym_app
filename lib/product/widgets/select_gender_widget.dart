@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-
-import '../constants/color_constants.dart';
-import '../enums/gender.dart';
-import 'gender_button_widget.dart';
+import 'package:gym_app/product/index.dart';
 
 class GenderSelector extends StatefulWidget {
   const GenderSelector({super.key});

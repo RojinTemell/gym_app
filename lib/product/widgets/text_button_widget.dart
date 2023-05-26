@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:gym_app/product/constants/color_constants.dart';
-import 'package:gym_app/product/mixins/navigatorManager.dart';
+import 'package:gym_app/product/index.dart';
 
 class TextButtonComponent extends StatelessWidget with NavigatorManager {
   TextButtonComponent(

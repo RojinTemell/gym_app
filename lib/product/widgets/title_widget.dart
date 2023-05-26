@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:gym_app/product/constants/color_constants.dart';
-import 'package:gym_app/product/enums/font_sizes.dart';
-import 'package:gym_app/product/enums/font_weight.dart';
+import 'package:gym_app/product/index.dart';
 
 class TitleComponent extends StatelessWidget {
   const TitleComponent(

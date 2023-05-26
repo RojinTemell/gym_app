@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:gym_app/product/constants/color_constants.dart';
-
-import '../mixins/navigatorManager.dart';
+import 'package:gym_app/product/index.dart';
 
 class FloatingActionButtonComponent extends StatelessWidget
     with NavigatorManager {
