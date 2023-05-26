@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:gym_app/product/enums/text_field_type.dart';
+import 'package:gym_app/product/index.dart';
 
 class TextInputComponent extends StatelessWidget {
   TextInputComponent({Key? key, required this.type, this.isLast = false})

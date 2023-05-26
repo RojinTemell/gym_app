@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:gym_app/product/constants/border_radius_constants.dart';
-import 'package:gym_app/product/constants/color_constants.dart';
-import 'package:gym_app/product/enums/font_sizes.dart';
-import 'package:gym_app/product/enums/widget_sizes.dart';
+import 'package:gym_app/product/index.dart';
 
 // ignore: must_be_immutable
 class NumberInputComponent extends StatelessWidget {

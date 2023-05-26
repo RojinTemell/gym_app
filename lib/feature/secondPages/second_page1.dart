@@ -1,12 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:gym_app/product/constants/string_constants.dart';
-import 'package:gym_app/product/enums/font_sizes.dart';
-import 'package:gym_app/product/enums/font_weight.dart';
-import 'package:gym_app/product/enums/image_enums.dart';
-import 'package:gym_app/product/widgets/image_shadow_widget.dart';
-import 'package:gym_app/product/widgets/title_widget.dart';
-
-import '../../product/constants/clipper_constants.dart';
+import 'package:gym_app/product/index.dart';
 
 class SecondPage1 extends StatelessWidget {
   const SecondPage1({super.key});

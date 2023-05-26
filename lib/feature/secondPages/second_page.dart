@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:gym_app/feature/secondPages/second_page1.dart';
 import 'package:gym_app/feature/secondPages/second_page2.dart';
 import 'package:gym_app/feature/secondPages/second_page3.dart';
-import 'package:gym_app/product/constants/color_constants.dart';
+import 'package:gym_app/product/index.dart';
 
 class SecondPage extends StatefulWidget {
   const SecondPage({super.key});

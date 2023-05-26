@@ -1,14 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gym_app/feature/workout_categories_page.dart';
-import 'package:gym_app/product/constants/color_constants.dart';
-import 'package:gym_app/product/constants/string_constants.dart';
-import 'package:gym_app/product/enums/font_sizes.dart';
-import 'package:gym_app/product/enums/font_weight.dart';
-import 'package:gym_app/product/enums/image_enums.dart';
-import 'package:gym_app/product/mixins/navigatorManager.dart';
-import 'package:gym_app/product/widgets/title_widget.dart';
-
-import '../product/widgets/video_card_widget.dart';
+import 'package:gym_app/product/index.dart';
 
 class WorkoutDetailPlanPage extends StatefulWidget {
   const WorkoutDetailPlanPage({super.key});
