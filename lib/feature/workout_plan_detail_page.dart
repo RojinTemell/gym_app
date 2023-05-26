@@ -13,6 +13,10 @@ class _WorkoutDetailPlanPageState extends State<WorkoutDetailPlanPage>
     with NavigatorManager {
   @override
   Widget build(BuildContext context) {
+    PagePadding pagePadding = PagePadding();
+    PageHeights pageHeights = PageHeights();
+    Radius radius30 = const Radius.circular(30.0);
+
     return Scaffold(
       body: Column(
         children: [
@@ -20,17 +24,17 @@ class _WorkoutDetailPlanPageState extends State<WorkoutDetailPlanPage>
             children: [
               Image.asset(
                 ImageEnums.workoutPlanDetailPage.toJpg,
-                height: 340,
+                height: pageHeights.imageHeight,
                 width: MediaQuery.of(context).size.width,
                 fit: BoxFit.fill,
               ),
               Padding(
-                padding: const EdgeInsets.all(30),
+                padding: pagePadding.padding30,
                 child: FloatingActionButton(
                   onPressed: () {
                     navigateToWidget(context, const WorkoutCategoriesPage());
                   },
-                  backgroundColor: const Color.fromRGBO(0, 0, 0, 0.2),
+                  backgroundColor: ColorsConstants.greyColor,
                   child: const Icon(
                     Icons.arrow_back_ios_new_outlined,
                     color: ColorsConstants.whiteColor,
@@ -41,17 +45,17 @@ class _WorkoutDetailPlanPageState extends State<WorkoutDetailPlanPage>
                   bottom: 0,
                   width: MediaQuery.of(context).size.width,
                   child: Container(
-                    height: 80,
-                    decoration: const BoxDecoration(
+                    height: pageHeights.randomContainerHeight,
+                    decoration: BoxDecoration(
                       color: ColorsConstants.sharkColor,
                       borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(30.0),
-                        topRight: Radius.circular(30.0),
+                        topLeft: radius30,
+                        topRight: radius30,
                       ),
                     ),
-                    child: const Padding(
-                      padding: EdgeInsets.only(top: 20),
-                      child: TitleComponent(
+                    child: Padding(
+                      padding: pagePadding.topPadding,
+                      child: const TitleComponent(
                         text: StringConstants.workoutDetailPlanTitle,
                         size: FontSizes.videoCardTitle,
                         weight: FontWeights.semiBold,
@@ -63,27 +67,31 @@ class _WorkoutDetailPlanPageState extends State<WorkoutDetailPlanPage>
           ),
           Row(
             children: const [
-              infoContainers(
+              InfoContainers(
                 iconData: Icons.play_circle,
                 text: "60 min",
               ),
-              infoContainers(
+              InfoContainers(
                 iconData: Icons.local_fire_department,
                 text: "350 Cal",
               ),
             ],
           ),
-          const Padding(
-            padding: EdgeInsets.only(top: 20),
+          Padding(
+            padding: pagePadding.topPadding,
             child: Align(
               alignment: Alignment.centerLeft,
-              child: SizedBox(
-                  width: 350,
-                  height: 90,
-                  child: Padding(
-                    padding: EdgeInsets.only(left: 20),
-                    child: Text(StringConstants.workoutDetailPlanDescription),
-                  )),
+              child: Padding(
+                padding: pagePadding.rightPadding,
+                child: SizedBox(
+                    width: MediaQuery.of(context).size.width,
+                    height: pageHeights.sizedBoxHeight,
+                    child: Padding(
+                      padding: pagePadding.leftPadding,
+                      child: const Text(
+                          StringConstants.workoutDetailPlanDescription),
+                    )),
+              ),
             ),
           ),
           Expanded(
@@ -103,27 +111,15 @@ class _WorkoutDetailPlanPageState extends State<WorkoutDetailPlanPage>
   }
 }
 
-class infoContainers extends StatelessWidget {
-  const infoContainers({Key? key, required this.iconData, required this.text})
-      : super(key: key);
-  final IconData iconData;
-  final String text;
+class PagePadding {
+  EdgeInsets padding30 = const EdgeInsets.all(30);
+  EdgeInsets topPadding = const EdgeInsets.only(top: 20);
+  EdgeInsets leftPadding = const EdgeInsets.only(left: 20);
+  EdgeInsets rightPadding = const EdgeInsets.only(right: 10);
+}
 
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(left: 20),
-      child: Container(
-        height: 30,
-        width: 95,
-        decoration: const BoxDecoration(
-            color: ColorsConstants.tunaColor,
-            borderRadius: BorderRadius.all(Radius.circular(20))),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [Icon(iconData), Text(text)],
-        ),
-      ),
-    );
-  }
+class PageHeights {
+  double imageHeight = 340;
+  double randomContainerHeight = 80;
+  double sizedBoxHeight = 90;
 }

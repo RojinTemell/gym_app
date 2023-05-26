@@ -9,3 +9,4 @@ export 'package:gym_app/product/widgets/text_button_widget.dart';
 export 'package:gym_app/product/widgets/text_input_widget.dart';
 export 'package:gym_app/product/widgets/title_widget.dart';
 export 'package:gym_app/product/widgets/video_card_widget.dart';
+export 'package:gym_app/product/widgets/info-container.dart';
