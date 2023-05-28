@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gym_app/feature/gender_select_page.dart';
+import 'package:gym_app/feature/workout_categories_page.dart';
 import 'package:gym_app/product/index.dart';
-
-import 'login_page.dart';
 
 class AgeHeightWeightPage extends StatelessWidget {
   const AgeHeightWeightPage({super.key});
@@ -57,7 +56,7 @@ class AgeHeightWeightPage extends StatelessWidget {
                 Padding(
                   padding: onlyRightPadding,
                   child: ElevatedButtonComponent(
-                    widget: const LoginPage(),
+                    widget: const WorkoutCategoriesPage(),
                     buttonWidth: 100,
                     buttonText: StringConstants.nextButtonText,
                     buttonIcon: Icons.play_arrow,
