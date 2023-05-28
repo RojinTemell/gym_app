@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:gym_app/feature/login_page.dart';
 import 'package:gym_app/product/index.dart';
-import '../gender_select_page.dart';
 
 class SecondPage3 extends StatelessWidget {
   const SecondPage3({super.key});
@@ -38,7 +38,7 @@ class SecondPage3 extends StatelessWidget {
         Padding(
           padding: onlyTopPadding,
           child: ElevatedButtonComponent(
-            widget: const GenderSelectPage(),
+            widget: const LoginPage(),
             buttonWidth: 185,
             buttonText: StringConstants.secondPage3ButtonText,
             buttonIcon: Icons.play_arrow,

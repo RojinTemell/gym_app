@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:gym_app/feature/settings-page.dart';
+import 'package:gym_app/feature/workout_plan_detail_page.dart';
 import 'package:gym_app/product/index.dart';
 
 class WorkoutCategoriesPage extends StatefulWidget {
@@ -9,7 +11,7 @@ class WorkoutCategoriesPage extends StatefulWidget {
 }
 
 class _WorkoutCategoriesPageState extends State<WorkoutCategoriesPage>
-    with TickerProviderStateMixin {
+    with TickerProviderStateMixin, NavigatorManager {
   @override
   Widget build(BuildContext context) {
     TabController tabController = TabController(length: 3, vsync: this);
@@ -24,13 +26,16 @@ class _WorkoutCategoriesPageState extends State<WorkoutCategoriesPage>
         backgroundColor: Colors.transparent,
         centerTitle: true,
         elevation: 0,
+        automaticallyImplyLeading: false,
         title: const TitleComponent(
             text: StringConstants.workoutCategoriesTitle,
             size: FontSizes.h4,
             weight: FontWeights.normal),
         actions: [
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              navigateToWidget(context, const SettingsPage());
+            },
             icon: const Icon(Icons.settings),
           )
         ],
@@ -73,9 +78,11 @@ class _WorkoutCategoriesPageState extends State<WorkoutCategoriesPage>
                         itemCount: 4,
                         itemBuilder: (context, index) {
                           return CardComponent(
-                              cardTitle: StringConstants.cardTitle,
-                              cardTypeTitle: StringConstants.cardTypeName,
-                              imagePath: ImageEnums.cardImage.toJpg);
+                            cardTitle: StringConstants.cardTitle,
+                            cardTypeTitle: StringConstants.cardTypeName,
+                            imagePath: ImageEnums.cardImage.toJpg,
+                            widget: const WorkoutDetailPlanPage(),
+                          );
                         }),
                     ListView.builder(
                         scrollDirection: Axis.vertical,
@@ -85,7 +92,8 @@ class _WorkoutCategoriesPageState extends State<WorkoutCategoriesPage>
                           return CardComponent(
                               cardTitle: StringConstants.cardTitle,
                               cardTypeTitle: StringConstants.cardTypeName,
-                              imagePath: ImageEnums.cardImage.toJpg);
+                              imagePath: ImageEnums.cardImage.toJpg,
+                              widget: const WorkoutDetailPlanPage());
                         }),
                     ListView.builder(
                         scrollDirection: Axis.vertical,
@@ -95,7 +103,8 @@ class _WorkoutCategoriesPageState extends State<WorkoutCategoriesPage>
                           return CardComponent(
                               cardTitle: StringConstants.cardTitle,
                               cardTypeTitle: StringConstants.cardTypeName,
-                              imagePath: ImageEnums.cardImage.toJpg);
+                              imagePath: ImageEnums.cardImage.toJpg,
+                              widget: const WorkoutDetailPlanPage());
                         }),
                   ],
                 ))),

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:gym_app/feature/first_page.dart';
 import 'package:gym_app/feature/sign_up_page.dart';
+import 'package:gym_app/feature/workout_categories_page.dart';
 import 'package:gym_app/product/index.dart';
 
 class LoginPage extends StatefulWidget {
@@ -96,7 +96,7 @@ class _LoginPage extends State<LoginPage> {
                     buttonText: StringConstants.loginButtonText,
                     buttonWidth: 100,
                     buttonIcon: Icons.play_arrow,
-                    widget: const FirstPage(),
+                    widget: const WorkoutCategoriesPage(),
                     method: () {
                       if (_formKey.currentState!.validate()) {
                         return true;

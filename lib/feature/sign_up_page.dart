@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:gym_app/feature/first_page.dart';
+import 'package:gym_app/feature/gender_select_page.dart';
 import 'package:gym_app/feature/login_page.dart';
 import 'package:gym_app/product/index.dart';
 
@@ -103,7 +103,7 @@ class _SignUpPage extends State<SignUpPage> {
                     buttonText: StringConstants.signupButtonText,
                     buttonWidth: 100,
                     buttonIcon: Icons.play_arrow,
-                    widget: const FirstPage(),
+                    widget: const GenderSelectPage(),
                     method: () {
                       if (_formKey.currentState!.validate()) {
                         return true;

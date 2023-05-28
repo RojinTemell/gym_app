@@ -1,7 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:gym_app/feature/age_height_weight_page.dart';
-import 'package:gym_app/feature/workout_plan_detail_page.dart';
+import 'package:gym_app/feature/gender_select_page.dart';
+import 'package:gym_app/feature/login_page.dart';
+import 'package:gym_app/feature/workout_categories_page.dart';
 import 'package:gym_app/product/index.dart';
 
 class SettingsPage extends StatefulWidget {
@@ -22,7 +23,7 @@ class _SettingsPageState extends State<SettingsPage> with NavigatorManager {
         leading: const Padding(
           padding: EdgeInsets.only(top: 15),
           child: FloatingActionButtonComponent(
-            widget: WorkoutDetailPlanPage(),
+            widget: WorkoutCategoriesPage(),
           ),
         ),
         title: const Padding(
@@ -55,7 +56,7 @@ class _SettingsPageState extends State<SettingsPage> with NavigatorManager {
           const divider(),
           InkWell(
             onTap: () {
-              navigateToWidget(context, const AgeHeightWeightPage());
+              navigateToWidget(context, const GenderSelectPage());
             },
             child: const ListTile(
                 title: Text(StringConstants.editText),
@@ -71,7 +72,9 @@ class _SettingsPageState extends State<SettingsPage> with NavigatorManager {
             child: Container(
                 alignment: Alignment.centerLeft,
                 child: InkWell(
-                  onTap: () {},
+                  onTap: () {
+                    navigateToWidget(context, const LoginPage());
+                  },
                   child: const Text(
                     'Sign Out',
                     style: TextStyle(

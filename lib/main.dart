@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:gym_app/feature/first_page.dart';
 import 'package:gym_app/product/index.dart';
-import 'feature/settings-page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData.dark().copyWith(
         scaffoldBackgroundColor: ColorsConstants.sharkColor,
       ),
-      home: const SettingsPage(),
+      home: const FirstPage(),
     );
   }
 }
