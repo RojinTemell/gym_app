@@ -35,6 +35,7 @@ class NumberInputComponent extends StatelessWidget {
                   isLast ? TextInputAction.done : TextInputAction.next,
               keyboardType: TextInputType.number,
               keyboardAppearance: Brightness.dark,
+              autofocus: true,
               textAlign: TextAlign.center,
               style: TextStyle(
                 fontSize: FontSizes.h1.value,
