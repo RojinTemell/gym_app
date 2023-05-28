@@ -7,18 +7,20 @@ class TitleComponent extends StatelessWidget {
       required this.text,
       required this.size,
       required this.weight,
+      this.align = TextAlign.center,
       this.color})
       : super(key: key);
   final String text;
   final FontSizes size;
   final FontWeights weight;
   final Color? color;
+  final TextAlign align;
 
   @override
   Widget build(BuildContext context) {
     return Text(
       text,
-      textAlign: TextAlign.center,
+      textAlign: align,
       style: TextStyle(
         fontFamily: 'IntegralCF',
         fontWeight: weight.value,

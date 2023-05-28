@@ -23,7 +23,8 @@ class StringConstants {
       "THIS HELPS US CREATE YOUR PERSONALIZED PLAN";
   static const String loginPageTitle = "WELCOME BACK,";
   static const String loginPageSubTitle = "ARE YOU READY?";
-  static const String signUpPageTitle = "HELLO ROOKIES!";
+  static const String signUpPageTitle1 = "HELLO ";
+  static const String signUpPageTitle2 = " ROOKIES!";
   static const String signUpPageSubTitle =
       "ENTER YOUR INFORMATIONS BELOW OR LOGIN WITH A OTHER ACCOUNT";
   static const String nextButtonText = "Next";
