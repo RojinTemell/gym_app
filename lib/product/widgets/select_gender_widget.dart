@@ -10,7 +10,7 @@ class GenderSelector extends StatefulWidget {
 
 class SelectGender extends State<GenderSelector> {
   List genders = [Gender.female, Gender.male];
-  int selectedIndex = -1;
+  int selectedIndex = 0;
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
