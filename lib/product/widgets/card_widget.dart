@@ -1,15 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:gym_app/feature/workout_plan_detail_page.dart';
 import 'package:gym_app/product/index.dart';
 
 // ignore: must_be_immutable
-class CardComponent extends StatelessWidget {
+class CardComponent extends StatelessWidget with NavigatorManager {
   CardComponent(
       {Key? key,
       required this.cardTitle,
       required this.cardTypeTitle,
-      required this.imagePath})
+      required this.imagePath,
+      required this.widget})
       : super(key: key);
   final String cardTitle;
+  final Widget widget;
   final String cardTypeTitle;
   final String imagePath;
 
@@ -29,7 +32,9 @@ class CardComponent extends StatelessWidget {
               borderRadius: BorderRadiusConstants.cardBorderRadius,
             ),
             child: InkWell(
-              onTap: () {},
+              onTap: () {
+                navigateToWidget(context, const WorkoutDetailPlanPage());
+              },
               child: Stack(
                 children: [
                   ImageShadowComponent(
