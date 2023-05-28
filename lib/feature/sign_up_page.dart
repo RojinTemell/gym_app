@@ -1,23 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:gym_app/feature/first_page.dart';
-import 'package:gym_app/feature/sign_up_page.dart';
+import 'package:gym_app/feature/login_page.dart';
 import 'package:gym_app/product/index.dart';
 
-class LoginPage extends StatefulWidget {
-  const LoginPage({super.key});
+class SignUpPage extends StatefulWidget {
+  const SignUpPage({super.key});
 
   @override
-  _LoginPage createState() => _LoginPage();
+  _SignUpPage createState() => _SignUpPage();
 }
 
-class _LoginPage extends State<LoginPage> {
+class _SignUpPage extends State<SignUpPage> {
   final _formKey = GlobalKey<FormState>();
 
-  final double imageHeight = 400;
-  final EdgeInsets topLeftPadding = const EdgeInsets.only(top: 130, left: 30);
+  final double imageHeight = 300;
+  final EdgeInsets topLeftPadding = const EdgeInsets.only(top: 40, left: 30);
   final EdgeInsets onlyLeftPadding = const EdgeInsets.only(left: 30);
   final EdgeInsets onlyRightPadding = const EdgeInsets.only(right: 32);
-  final EdgeInsets topRightPadding = const EdgeInsets.only(right: 32, top: 20);
+  final EdgeInsets topRightPadding = const EdgeInsets.only(right: 32, top: 60);
+  final EdgeInsets subTitlePadding =
+      const EdgeInsets.only(left: 30, top: 10, right: 150);
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +36,7 @@ class _LoginPage extends State<LoginPage> {
                       width: double.infinity,
                       height: imageHeight,
                       child: Image.asset(
-                        ImageEnums.loginPageImage.toJpg,
+                        ImageEnums.signUpPageImage.toJpg,
                         fit: BoxFit.cover,
                       ),
                     ),
@@ -47,28 +49,37 @@ class _LoginPage extends State<LoginPage> {
                       TextButtonComponent(
                         buttonText: StringConstants.loginButtonText,
                         widget: const LoginPage(),
-                        isActive: true,
+                        isActive: false,
                       ),
                       TextButtonComponent(
                         buttonText: StringConstants.signupButtonText,
                         widget: const SignUpPage(),
-                        isActive: false,
+                        isActive: true,
                       ),
                     ],
                   ),
                   Padding(
-                    padding: topLeftPadding,
-                    child: const TitleComponent(
-                        text: StringConstants.loginPageTitle,
-                        size: FontSizes.h1,
-                        weight: FontWeights.normal),
-                  ),
+                      padding: topLeftPadding,
+                      child: Row(
+                        children: const [
+                          TitleComponent(
+                              text: StringConstants.signUpPageTitle1,
+                              size: FontSizes.h1,
+                              weight: FontWeights.normal),
+                          TitleComponent(
+                              text: StringConstants.signUpPageTitle2,
+                              size: FontSizes.h1,
+                              weight: FontWeights.semiBold),
+                        ],
+                      )),
                   Padding(
-                    padding: onlyLeftPadding,
+                    padding: subTitlePadding,
                     child: const TitleComponent(
-                        text: StringConstants.loginPageSubTitle,
-                        size: FontSizes.h1,
-                        weight: FontWeights.bold),
+                      text: StringConstants.signUpPageSubTitle,
+                      size: FontSizes.h6,
+                      weight: FontWeights.normal,
+                      align: TextAlign.start,
+                    ),
                   ),
                 ],
               )
@@ -81,19 +92,15 @@ class _LoginPage extends State<LoginPage> {
               TextInputComponent(type: TextFieldType.email),
               TextInputComponent(
                 type: TextFieldType.password,
+              ),
+              TextInputComponent(
+                type: TextFieldType.passwordAgain,
                 isLast: true,
               ),
               Padding(
-                  padding: onlyRightPadding,
-                  child: TextButton(
-                      onPressed: () {},
-                      child: const Text(
-                        StringConstants.forgetPasswordButtonText,
-                      ))),
-              Padding(
                 padding: topRightPadding,
                 child: ElevatedButtonComponent(
-                    buttonText: StringConstants.loginButtonText,
+                    buttonText: StringConstants.signupButtonText,
                     buttonWidth: 100,
                     buttonIcon: Icons.play_arrow,
                     widget: const FirstPage(),
