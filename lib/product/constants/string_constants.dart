@@ -42,4 +42,7 @@ class StringConstants {
   static const String settingsText = "SETTINGS";
   static const String editText = "Show All Health Data";
   static const String notificationText = "Program Notifications";
+  static const String notificationTitle = "Where Are You Rookie?";
+  static const String notificationSubTitle =
+      "These muscles do not form on their own!";
 }
