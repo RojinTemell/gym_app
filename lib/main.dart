@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gym_app/feature/first_page.dart';
 import 'package:gym_app/product/index.dart';
-import 'package:gym_app/product/widgets/notification.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
