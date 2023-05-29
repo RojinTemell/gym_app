@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:gym_app/feature/first_page.dart';
 import 'package:gym_app/product/index.dart';
+import 'package:gym_app/product/widgets/notification.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  NotificationService().initializeNotification();
+  NotificationService().showNotification(1, StringConstants.notificationTitle,
+      StringConstants.notificationSubTitle);
   runApp(const MyApp());
 }
 
