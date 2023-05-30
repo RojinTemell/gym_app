@@ -25,7 +25,7 @@ class _SignUpPage extends State<SignUpPage> with NavigatorManager {
   final TextEditingController passwordController = TextEditingController();
   final TextEditingController passwordAgainController = TextEditingController();
 
-  CollectionReference users = FirebaseFirestore.instance.collection("users");
+  CollectionReference user = FirebaseFirestore.instance.collection("users");
 
   @override
   Widget build(BuildContext context) {
@@ -123,7 +123,8 @@ class _SignUpPage extends State<SignUpPage> with NavigatorManager {
                           'email': emailController.text,
                           'password': passwordController.text,
                         };
-                        await users.doc(emailController.text).set(userData);
+                        await user.doc(emailController.text).set(userData);
+                        User.email = emailController.text;
                         // ignore: use_build_context_synchronously
                         navigateToWidget(context, const GenderSelectPage());
                       } else if (passwordAgainController.text !=
