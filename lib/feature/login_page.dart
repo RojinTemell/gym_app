@@ -78,9 +78,10 @@ class _LoginPage extends State<LoginPage> {
             key: _formKey,
             child:
                 Column(crossAxisAlignment: CrossAxisAlignment.end, children: [
-              TextInputComponent(type: TextFieldType.email),
+              TextInputComponent(type: TextFieldType.email, controller: TextEditingController(),),
               TextInputComponent(
                 type: TextFieldType.password,
+                controller: TextEditingController(),
                 isLast: true,
               ),
               Padding(
