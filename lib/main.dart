@@ -1,10 +1,13 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:gym_app/feature/first_page.dart';
+import 'package:gym_app/feature/workout_categories_page.dart';
 import 'package:gym_app/product/index.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
+  await Firebase.initializeApp();
+  //Notification
   WidgetsFlutterBinding.ensureInitialized();
   NotificationService().initializeNotification();
   NotificationService().showNotification(1, StringConstants.notificationTitle,
@@ -18,19 +21,19 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    final Future<FirebaseApp> _initialization = Firebase.initializeApp();
+    final Future<FirebaseApp> initialization = Firebase.initializeApp();
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData.dark().copyWith(
         scaffoldBackgroundColor: ColorsConstants.sharkColor,
       ),
       home: FutureBuilder(
-          future: _initialization,
+          future: initialization,
           builder: (context, snapshot) {
             if (snapshot.hasError) {
               return const Center(child: Text("Beklenilmeyen Bir Hata Oluştu"));
             } else if (snapshot.hasData) {
-              return const FirstPage();
+              return const WorkoutCategoriesPage();
             } else {
               return const Center(
                 child: CircularProgressIndicator(),
