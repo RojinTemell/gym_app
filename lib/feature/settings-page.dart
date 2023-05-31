@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:gym_app/feature/gender_select_page.dart';
@@ -73,6 +74,7 @@ class _SettingsPageState extends State<SettingsPage> with NavigatorManager {
                 alignment: Alignment.centerLeft,
                 child: InkWell(
                   onTap: () {
+                    FirebaseAuth.instance.signOut();
                     navigateToWidget(context, const LoginPage());
                   },
                   child: const Text(

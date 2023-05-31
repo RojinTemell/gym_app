@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:gym_app/feature/sign_up_page.dart';
 import 'package:gym_app/feature/workout_categories_page.dart';
@@ -10,7 +11,7 @@ class LoginPage extends StatefulWidget {
   _LoginPage createState() => _LoginPage();
 }
 
-class _LoginPage extends State<LoginPage> {
+class _LoginPage extends State<LoginPage> with NavigatorManager {
   final _formKey = GlobalKey<FormState>();
 
   final double imageHeight = 400;
@@ -18,7 +19,8 @@ class _LoginPage extends State<LoginPage> {
   final EdgeInsets onlyLeftPadding = const EdgeInsets.only(left: 30);
   final EdgeInsets onlyRightPadding = const EdgeInsets.only(right: 32);
   final EdgeInsets topRightPadding = const EdgeInsets.only(right: 32, top: 20);
-
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -78,10 +80,13 @@ class _LoginPage extends State<LoginPage> {
             key: _formKey,
             child:
                 Column(crossAxisAlignment: CrossAxisAlignment.end, children: [
-              TextInputComponent(type: TextFieldType.email, controller: TextEditingController(),),
+              TextInputComponent(
+                type: TextFieldType.email,
+                controller: _emailController,
+              ),
               TextInputComponent(
                 type: TextFieldType.password,
-                controller: TextEditingController(),
+                controller: _passwordController,
                 isLast: true,
               ),
               Padding(
@@ -99,15 +104,19 @@ class _LoginPage extends State<LoginPage> {
                     buttonIcon: Icons.play_arrow,
                     widget: const WorkoutCategoriesPage(),
                     method: () {
-                      if (_formKey.currentState!.validate()) {
-                        return true;
-                      } else {
+                      FirebaseAuth.instance
+                          .signInWithEmailAndPassword(
+                              email: _emailController.text,
+                              password: _passwordController.text)
+                          .then((value) {
+                        navigateToWidget(
+                            context, const WorkoutCategoriesPage());
+                      }).onError((error, stackTrace) {
                         ScaffoldMessenger.of(context).showSnackBar(
                           const SnackBar(
                               content: Text(StringConstants.loginErrorText)),
                         );
-                        return false;
-                      }
+                      });
                     }),
               )
             ]),
@@ -117,3 +126,15 @@ class _LoginPage extends State<LoginPage> {
     ));
   }
 }
+
+
+/*
+ if (_formKey.currentState!.validate()) {
+                        return true;
+                      } else {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          const SnackBar(
+                              content: Text(StringConstants.loginErrorText)),
+                        );
+                        return false;
+                      } */

@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart' as auth;
 import 'package:flutter/material.dart';
 import 'package:gym_app/feature/gender_select_page.dart';
 import 'package:gym_app/feature/login_page.dart';
@@ -8,6 +9,7 @@ class SignUpPage extends StatefulWidget {
   const SignUpPage({super.key});
 
   @override
+  // ignore: library_private_types_in_public_api
   _SignUpPage createState() => _SignUpPage();
 }
 
@@ -116,7 +118,36 @@ class _SignUpPage extends State<SignUpPage> with NavigatorManager {
                     buttonIcon: Icons.play_arrow,
                     widget: const GenderSelectPage(),
                     method: () async {
-                      if (_formKey.currentState!.validate() &&
+                      auth.FirebaseAuth.instance
+                          .createUserWithEmailAndPassword(
+                              email: emailController.text,
+                              password: passwordController.text)
+                          .then((value) async {
+                        Map<String, dynamic> userData = {
+                          'userId': value.user?.uid,
+                        };
+                        await user.doc(value.user?.uid).set(userData);
+                        User.userId = value.user!.uid;
+                        navigateToWidget(context, const GenderSelectPage());
+                      }).onError((error, stackTrace) {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          const SnackBar(
+                              content:
+                                  Text(StringConstants.passwordAgainError)),
+                        );
+                      });
+                    }),
+              )
+            ]),
+          ),
+        ],
+      ),
+    ));
+  }
+}
+
+
+/* if (_formKey.currentState!.validate() &&
                           passwordAgainController.text ==
                               passwordController.text) {
                         Map<String, dynamic> userData = {
@@ -139,13 +170,4 @@ class _SignUpPage extends State<SignUpPage> with NavigatorManager {
                           const SnackBar(
                               content: Text(StringConstants.loginErrorText)),
                         );
-                      }
-                    }),
-              )
-            ]),
-          ),
-        ],
-      ),
-    ));
-  }
-}
+                      } */
