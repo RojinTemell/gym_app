@@ -44,4 +44,8 @@ class NotificationService {
         ),
         androidAllowWhileIdle: true);
   }
+
+  Future<void> cancelNotfication() async {
+    await flutterLocalNotificationsPlugin.cancelAll();
+  }
 }

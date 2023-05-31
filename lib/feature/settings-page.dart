@@ -13,7 +13,7 @@ class SettingsPage extends StatefulWidget {
 }
 
 class _SettingsPageState extends State<SettingsPage> with NavigatorManager {
-  bool _switchValue = false;
+  bool _switchValue = true;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -44,10 +44,18 @@ class _SettingsPageState extends State<SettingsPage> with NavigatorManager {
             title: const Text(StringConstants.notificationText),
             trailing: CupertinoSwitch(
               value: _switchValue,
-              onChanged: (value) {
+              onChanged: (value) async {
                 setState(() {
                   _switchValue = value;
                 });
+                if (!_switchValue) {
+                  NotificationService().cancelNotfication();
+                } else {
+                  NotificationService().showNotification(
+                      1,
+                      StringConstants.notificationTitle,
+                      StringConstants.notificationSubTitle);
+                }
               },
               trackColor: ColorsConstants.tunaColor,
               activeColor: ColorsConstants.blueColor,
