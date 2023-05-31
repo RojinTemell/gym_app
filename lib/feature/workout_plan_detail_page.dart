@@ -102,6 +102,7 @@ class _WorkoutDetailPlanPageState extends State<WorkoutDetailPlanPage>
                     cardTitle: StringConstants.cardTitle,
                     cardSubtitle: StringConstants.cardTypeName,
                     imagePath: ImageEnums.cardImage.toJpg,
+                    cardUrl: 'https://www.youtube.com/watch?v=WObeihAmTTc',
                   );
                 }),
           )
