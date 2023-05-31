@@ -3,14 +3,19 @@ import 'package:gym_app/feature/workout_categories_page.dart';
 import 'package:gym_app/product/index.dart';
 
 class WorkoutDetailPlanPage extends StatefulWidget {
-  const WorkoutDetailPlanPage({super.key});
+  final int cardId;
+
+  const WorkoutDetailPlanPage({super.key, required this.cardId});
 
   @override
-  State<WorkoutDetailPlanPage> createState() => _WorkoutDetailPlanPageState();
+  State<WorkoutDetailPlanPage> createState() =>
+      _WorkoutDetailPlanPageState(cardId);
 }
 
 class _WorkoutDetailPlanPageState extends State<WorkoutDetailPlanPage>
     with NavigatorManager {
+  _WorkoutDetailPlanPageState(cardId);
+
   @override
   Widget build(BuildContext context) {
     PagePadding pagePadding = PagePadding();

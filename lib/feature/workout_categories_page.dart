@@ -24,21 +24,22 @@ class _WorkoutCategoriesPageState extends State<WorkoutCategoriesPage>
         const EdgeInsets.symmetric(horizontal: 24);
 
 //get data
-
-    List<String> cards = [];
-
+    List<Map> BeginnerCards = [];
+    List<Map> IntermediateCards = [];
+    List<Map> AdvanceCards = [];
     Future getCards() async {
       await FirebaseFirestore.instance
           .collection('cards')
           .get()
           .then((snapshot) => snapshot.docs.forEach((document) {
-                cards.add(document.reference.id);
+                if (document.data()['cardCategories'] == 0) {
+                  BeginnerCards.add(document.data());
+                } else if (document.data()['cardCategories'] == 1) {
+                  IntermediateCards.add(document.data());
+                } else if (document.data()['cardCategories'] == 2) {
+                  AdvanceCards.add(document.data());
+                }
               }));
-    }
-
-    void initState() {
-      getCards();
-      super.initState();
     }
 
     return Scaffold(
@@ -98,39 +99,51 @@ class _WorkoutCategoriesPageState extends State<WorkoutCategoriesPage>
                         return ListView.builder(
                             scrollDirection: Axis.vertical,
                             shrinkWrap: true,
-                            itemCount: cards.length,
+                            itemCount: BeginnerCards.length,
                             itemBuilder: (context, index) {
                               return CardComponent(
-                                cardTitle: StringConstants.cardTitle,
-                                cardTypeTitle: StringConstants.cardTypeName,
-                                imagePath: ImageEnums.cardImage.toJpg,
-                                widget: const WorkoutDetailPlanPage(),
+                                cardTitle: BeginnerCards[index]['cardTitle'],
+                                cardTypeTitle: BeginnerCards[index]
+                                    ['cardSubtitle'],
+                                imagePath: BeginnerCards[index]['cardUrl'],
+                                widget: WorkoutDetailPlanPage(
+                                    cardId: BeginnerCards[index]['cardId']),
                               );
                             });
                       },
                     ),
-                    ListView.builder(
-                        scrollDirection: Axis.vertical,
-                        shrinkWrap: true,
-                        itemCount: 3,
-                        itemBuilder: (context, index) {
-                          return CardComponent(
-                              cardTitle: StringConstants.cardTitle,
-                              cardTypeTitle: StringConstants.cardTypeName,
-                              imagePath: ImageEnums.cardImage.toJpg,
-                              widget: const WorkoutDetailPlanPage());
-                        }),
-                    ListView.builder(
-                        scrollDirection: Axis.vertical,
-                        shrinkWrap: true,
-                        itemCount: 4,
-                        itemBuilder: (context, index) {
-                          return CardComponent(
-                              cardTitle: StringConstants.cardTitle,
-                              cardTypeTitle: StringConstants.cardTypeName,
-                              imagePath: ImageEnums.cardImage.toJpg,
-                              widget: const WorkoutDetailPlanPage());
-                        }),
+                    FutureBuilder(builder: (context, snapshot) {
+                      return ListView.builder(
+                          scrollDirection: Axis.vertical,
+                          shrinkWrap: true,
+                          itemCount: IntermediateCards.length,
+                          itemBuilder: (context, index) {
+                            return CardComponent(
+                                cardTitle: IntermediateCards[index]
+                                    ['cardTitle'],
+                                cardTypeTitle: IntermediateCards[index]
+                                    ['cardSubtitle'],
+                                imagePath: IntermediateCards[index]['cardUrl'],
+                                widget: WorkoutDetailPlanPage(
+                                    cardId: IntermediateCards[index]
+                                        ['cardId']));
+                          });
+                    }),
+                    FutureBuilder(builder: (context, snapshot) {
+                      return ListView.builder(
+                          scrollDirection: Axis.vertical,
+                          shrinkWrap: true,
+                          itemCount: AdvanceCards.length,
+                          itemBuilder: (context, index) {
+                            return CardComponent(
+                                cardTitle: AdvanceCards[index]['cardTitle'],
+                                cardTypeTitle: AdvanceCards[index]
+                                    ['cardSubtitle'],
+                                imagePath: AdvanceCards[index]['cardUrl'],
+                                widget: WorkoutDetailPlanPage(
+                                    cardId: AdvanceCards[index]['cardId']));
+                          });
+                    }),
                   ],
                 ))),
       ]),
