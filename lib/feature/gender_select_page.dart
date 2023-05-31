@@ -41,7 +41,7 @@ class GenderSelectPage extends StatelessWidget {
               Padding(
                 padding: onlyRightPadding,
                 child: ElevatedButtonComponent(
-                  widget: const AgeHeightWeightPage(),
+                  widget: AgeHeightWeightPage(),
                   buttonWidth: 100,
                   buttonText: StringConstants.nextButtonText,
                   buttonIcon: Icons.play_arrow,

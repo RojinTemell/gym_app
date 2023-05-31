@@ -45,4 +45,5 @@ class StringConstants {
   static const String notificationTitle = "Where Are You Rookie?";
   static const String notificationSubTitle =
       "These muscles do not form on their own!";
+  static const String passwordAgainError = "Password repetition wrong!";
 }

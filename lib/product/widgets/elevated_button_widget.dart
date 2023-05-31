@@ -19,10 +19,11 @@ class ElevatedButtonComponent extends StatelessWidget with NavigatorManager {
   Widget build(BuildContext context) {
     return ElevatedButton(
         onPressed: () {
-          if (method != null) {}
-          method != null
-              ? (method!() ? navigateToWidget(context, widget) : "")
-              : navigateToWidget(context, widget);
+          if (method != null) {
+            method!();
+          } else {
+            navigateToWidget(context, widget);
+          }
         },
         style: ElevatedButton.styleFrom(
           shape: RoundedRectangleBorder(

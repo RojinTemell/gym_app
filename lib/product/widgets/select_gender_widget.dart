@@ -19,7 +19,10 @@ class SelectGender extends State<GenderSelector> {
         itemBuilder: (BuildContext context, int index) {
           return InkWell(
             splashColor: ColorsConstants.sharkColor,
-            onTap: () => setState(() => selectedIndex = index),
+            onTap: () {
+              setState(() => selectedIndex = index);
+              User.gender = index == 0;
+            },
             child: GenderButtonComponent(
                 gender: genders[index], isSelected: selectedIndex == index),
           );

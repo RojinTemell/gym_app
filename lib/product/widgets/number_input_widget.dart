@@ -3,12 +3,17 @@ import 'package:gym_app/product/index.dart';
 
 // ignore: must_be_immutable
 class NumberInputComponent extends StatelessWidget {
-  NumberInputComponent({Key? key, required this.text, this.isLast = false})
+  NumberInputComponent(
+      {Key? key,
+      required this.text,
+      this.isLast = false,
+      required this.control})
       : super(key: key);
   final String text;
   bool isLast;
   final double gap = 10;
   final EdgeInsets onlyBottomMargin = const EdgeInsets.only(bottom: 20);
+  final TextEditingController control;
 
   @override
   Widget build(BuildContext context) {
@@ -36,6 +41,7 @@ class NumberInputComponent extends StatelessWidget {
               keyboardType: TextInputType.number,
               keyboardAppearance: Brightness.dark,
               autofocus: true,
+              controller: control,
               textAlign: TextAlign.center,
               style: TextStyle(
                 fontSize: FontSizes.h1.value,

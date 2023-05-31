@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:gym_app/feature/gender_select_page.dart';
 import 'package:gym_app/feature/login_page.dart';
@@ -10,7 +11,7 @@ class SignUpPage extends StatefulWidget {
   _SignUpPage createState() => _SignUpPage();
 }
 
-class _SignUpPage extends State<SignUpPage> {
+class _SignUpPage extends State<SignUpPage> with NavigatorManager {
   final _formKey = GlobalKey<FormState>();
 
   final double imageHeight = 300;
@@ -20,6 +21,11 @@ class _SignUpPage extends State<SignUpPage> {
   final EdgeInsets topRightPadding = const EdgeInsets.only(right: 32, top: 60);
   final EdgeInsets subTitlePadding =
       const EdgeInsets.only(left: 30, top: 10, right: 150);
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
+  final TextEditingController passwordAgainController = TextEditingController();
+
+  CollectionReference user = FirebaseFirestore.instance.collection("users");
 
   @override
   Widget build(BuildContext context) {
@@ -89,12 +95,17 @@ class _SignUpPage extends State<SignUpPage> {
             key: _formKey,
             child:
                 Column(crossAxisAlignment: CrossAxisAlignment.end, children: [
-              TextInputComponent(type: TextFieldType.email),
+              TextInputComponent(
+                type: TextFieldType.email,
+                controller: emailController,
+              ),
               TextInputComponent(
                 type: TextFieldType.password,
+                controller: passwordController,
               ),
               TextInputComponent(
                 type: TextFieldType.passwordAgain,
+                controller: passwordAgainController,
                 isLast: true,
               ),
               Padding(
@@ -104,15 +115,30 @@ class _SignUpPage extends State<SignUpPage> {
                     buttonWidth: 100,
                     buttonIcon: Icons.play_arrow,
                     widget: const GenderSelectPage(),
-                    method: () {
-                      if (_formKey.currentState!.validate()) {
-                        return true;
+                    method: () async {
+                      if (_formKey.currentState!.validate() &&
+                          passwordAgainController.text ==
+                              passwordController.text) {
+                        Map<String, dynamic> userData = {
+                          'email': emailController.text,
+                          'password': passwordController.text,
+                        };
+                        await user.doc(emailController.text).set(userData);
+                        User.email = emailController.text;
+                        // ignore: use_build_context_synchronously
+                        navigateToWidget(context, const GenderSelectPage());
+                      } else if (passwordAgainController.text !=
+                          passwordController.text) {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          const SnackBar(
+                              content:
+                                  Text(StringConstants.passwordAgainError)),
+                        );
                       } else {
                         ScaffoldMessenger.of(context).showSnackBar(
                           const SnackBar(
                               content: Text(StringConstants.loginErrorText)),
                         );
-                        return false;
                       }
                     }),
               )
