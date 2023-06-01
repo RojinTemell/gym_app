@@ -1,23 +1,38 @@
 import 'package:flutter/material.dart';
 import 'package:gym_app/product/index.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class VideoCardComponent extends StatelessWidget {
   const VideoCardComponent(
       {Key? key,
       required this.cardTitle,
       required this.cardSubtitle,
-      required this.imagePath})
+      required this.imagePath,
+      required this.cardUrl})
       : super(key: key);
   final String cardTitle;
   final String cardSubtitle;
   final String imagePath;
+  final String cardUrl;
+
+  Future<void> _launchURL(String url) async {
+    // ignore: deprecated_member_use
+    if (await canLaunch(url)) {
+      // ignore: deprecated_member_use
+      await launch(url);
+    } else {
+      throw 'Could not launch url';
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-      child: InkWell(
-          onTap: () {},
+      child: GestureDetector(
+          onTap: () {
+            _launchURL(cardUrl);
+          },
           child: SizedBox(
             width: WidgetSizes.videoCardWidth.value,
             height: WidgetSizes.videoCardHeight.value,
