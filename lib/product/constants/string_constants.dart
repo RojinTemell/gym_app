@@ -46,4 +46,7 @@ class StringConstants {
   static const String notificationSubTitle =
       "These muscles do not form on their own!";
   static const String passwordAgainError = "Password repetition wrong!";
+  static const String ResetPasswordButton = "Reset Password";
+  static const String ResetPasswordTitle = "Receive an email ";
+  static const String ResetPasswordSubTitle = "to reset your password";
 }
