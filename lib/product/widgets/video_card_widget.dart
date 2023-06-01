@@ -50,7 +50,7 @@ class VideoCardComponent extends StatelessWidget {
                         child: ClipRRect(
                           borderRadius: BorderRadius.horizontal(
                               left: BorderRadiusConstants.videoCardRadius),
-                          child: Image.asset(
+                          child: Image.network(
                             imagePath,
                             fit: BoxFit.cover,
                           ),

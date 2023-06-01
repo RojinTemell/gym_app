@@ -1,6 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:gym_app/feature/workout_plan_detail_page.dart';
+import 'package:gym_app/feature/first_page.dart';
 import 'package:gym_app/product/index.dart';
 
 void main() async {
@@ -33,7 +33,7 @@ class MyApp extends StatelessWidget {
             if (snapshot.hasError) {
               return const Center(child: Text("Beklenilmeyen Bir Hata Oluştu"));
             } else if (snapshot.hasData) {
-              return const WorkoutDetailPlanPage();
+              return const FirstPage();
             } else {
               return const Center(
                 child: CircularProgressIndicator(),
