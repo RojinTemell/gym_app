@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:gym_app/feature/workout_categories_page.dart';
 import 'package:gym_app/product/index.dart';
@@ -14,13 +15,28 @@ class WorkoutDetailPlanPage extends StatefulWidget {
 
 class _WorkoutDetailPlanPageState extends State<WorkoutDetailPlanPage>
     with NavigatorManager {
-  _WorkoutDetailPlanPageState(cardId);
+  final int cardId;
+  _WorkoutDetailPlanPageState(this.cardId);
 
   @override
   Widget build(BuildContext context) {
     PagePadding pagePadding = PagePadding();
     PageHeights pageHeights = PageHeights();
     Radius radius30 = const Radius.circular(30.0);
+
+    List<Map> VideoCards = [];
+
+    Future getCards() async {
+      await FirebaseFirestore.instance
+          .collection('videos')
+          .get()
+          .then((snapshot) => snapshot.docs.forEach((document) {
+                print(document.data()['cardId']);
+                if (document.data()['cardId'] == cardId) {
+                  VideoCards.add(document.data());
+                }
+              }));
+    }
 
     return Scaffold(
       body: Column(
@@ -100,16 +116,23 @@ class _WorkoutDetailPlanPageState extends State<WorkoutDetailPlanPage>
             ),
           ),
           Expanded(
-            child: ListView.builder(
-                itemCount: 3,
-                itemBuilder: (context, index) {
-                  return VideoCardComponent(
-                    cardTitle: StringConstants.cardTitle,
-                    cardSubtitle: StringConstants.cardTypeName,
-                    imagePath: ImageEnums.cardImage.toJpg,
-                    cardUrl: 'https://www.youtube.com/watch?v=WObeihAmTTc',
-                  );
-                }),
+            child: FutureBuilder(
+              future: getCards(),
+              builder: (context, snapshot) {
+                return ListView.builder(
+                    scrollDirection: Axis.vertical,
+                    shrinkWrap: true,
+                    itemCount: VideoCards.length,
+                    itemBuilder: (context, index) {
+                      return VideoCardComponent(
+                        cardTitle: VideoCards[index]['videoTitle'],
+                        cardSubtitle: VideoCards[index]['videoTime'],
+                        cardUrl: VideoCards[index]['videoUrl'],
+                        imagePath: VideoCards[index]['videoImage'],
+                      );
+                    });
+              },
+            ),
           )
         ],
       ),
