@@ -5,6 +5,9 @@ import 'package:gym_app/product/index.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
+  await Firebase.initializeApp();
+  //Notification
   WidgetsFlutterBinding.ensureInitialized();
   NotificationService().initializeNotification();
   NotificationService().showNotification(1, StringConstants.notificationTitle,

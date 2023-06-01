@@ -33,13 +33,13 @@ class CardComponent extends StatelessWidget with NavigatorManager {
             ),
             child: InkWell(
               onTap: () {
-                navigateToWidget(context, const WorkoutDetailPlanPage());
+                navigateToWidget(context, widget);
               },
               child: Stack(
                 children: [
                   ImageShadowComponent(
-                    widget: Image(
-                      image: AssetImage(imagePath),
+                    widget: Image.network(
+                      imagePath,
                       fit: BoxFit.cover,
                       width: WidgetSizes.cardWidth.value,
                     ),
@@ -52,7 +52,7 @@ class CardComponent extends StatelessWidget with NavigatorManager {
                       children: [
                         Text(
                           cardTitle,
-                          style: Theme.of(context).textTheme.headline5,
+                          style: Theme.of(context).textTheme.headlineSmall,
                         ),
                         SizedBox(
                           height: 50,
@@ -69,7 +69,7 @@ class CardComponent extends StatelessWidget with NavigatorManager {
                                 padding: textTopLeftPadding,
                                 child: Text(
                                   cardTypeTitle,
-                                  style: Theme.of(context).textTheme.headline6,
+                                  style: Theme.of(context).textTheme.titleLarge,
                                 ),
                               )
                             ],

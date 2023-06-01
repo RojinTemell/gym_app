@@ -80,7 +80,7 @@ class AgeHeightWeightPage extends StatelessWidget with NavigatorManager {
                           'height': User.height,
                           'weight': User.weight,
                         };
-                        await user.doc(User.email).update(userData);
+                        await user.doc(User.userId).update(userData);
                         // ignore: use_build_context_synchronously
                         navigateToWidget(
                           context,
