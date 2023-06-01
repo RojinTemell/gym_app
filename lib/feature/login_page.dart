@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:gym_app/feature/forget_password_page.dart';
 import 'package:gym_app/feature/sign_up_page.dart';
 import 'package:gym_app/feature/workout_categories_page.dart';
 import 'package:gym_app/product/index.dart';
@@ -92,7 +93,9 @@ class _LoginPage extends State<LoginPage> with NavigatorManager {
               Padding(
                   padding: onlyRightPadding,
                   child: TextButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        navigateToWidget(context, const ForgetPasswordPage());
+                      },
                       child: const Text(
                         StringConstants.forgetPasswordButtonText,
                       ))),
